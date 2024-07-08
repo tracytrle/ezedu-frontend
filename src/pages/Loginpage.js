@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Stack, Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Loginpage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigator = useNavigate();
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://127.0.0.1:5000/login", {
+        email: email,
+        password: password,
+      });
+      localStorage.setItem("session_id", res.data.session_id);
+      navigator(`/homepage`);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <Stack
       sx={{
@@ -28,6 +48,7 @@ function Loginpage() {
           border: "1px solid black",
           backgroundColor: "#58B19F",
         }}
+        // onSubmit={handleOnSubmit}
       >
         <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h4">
           Login
@@ -40,8 +61,20 @@ function Loginpage() {
           noValidate
           autoComplete="off"
         >
-          <TextField id="standard-basic" label="Email" variant="standard" />
-          <TextField id="standard-basic" label="Password" variant="standard" />
+          <TextField
+            id="standard-basic"
+            label="Email"
+            variant="standard"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <TextField
+            id="standard-basic"
+            label="Password"
+            variant="standard"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </Box>
         <Button
           sx={{
@@ -50,6 +83,7 @@ function Loginpage() {
             "&:hover": { backgroundColor: "#229A16" },
           }}
           variant="contained"
+          onClick={handleOnSubmit}
         >
           Sign In
         </Button>
