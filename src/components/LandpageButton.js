@@ -9,6 +9,10 @@ export default function LandpageButton() {
   const handleSignIn = () => {
     navigate(`/login`);
   };
+
+  const handleRegister = () => {
+    navigate(`/register`);
+  };
   return (
     <Stack spacing={2} direction="row">
       <Button
@@ -18,7 +22,11 @@ export default function LandpageButton() {
       >
         Sign In
       </Button>
-      <Button sx={{ backgroundColor: "#54D62C" }} variant="contained">
+      <Button
+        sx={{ backgroundColor: "#54D62C" }}
+        variant="contained"
+        onClick={() => handleRegister()}
+      >
         Register
       </Button>
     </Stack>

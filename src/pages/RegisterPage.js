@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function LoginPage() {
+function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigator = useNavigate();
@@ -14,7 +14,7 @@ function LoginPage() {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://127.0.0.1:5000/login", {
+      const res = await axios.post("http://127.0.0.1:5000/register", {
         email: email,
         password: password,
       });
@@ -53,7 +53,7 @@ function LoginPage() {
         // onSubmit={handleOnSubmit}
       >
         <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h4">
-          Login
+          Create a new account
         </Typography>
         <Box
           component="form"
@@ -87,11 +87,11 @@ function LoginPage() {
           variant="contained"
           onClick={handleOnSubmit}
         >
-          Sign In
+          Register
         </Button>
       </Box>
     </Stack>
   );
 }
 
-export default LoginPage;
+export default RegisterPage;

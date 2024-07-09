@@ -4,7 +4,7 @@ import LandpageButton from "../components/LandpageButton";
 import Typography from "@mui/material/Typography";
 // import Button from "@mui/material/Button";
 
-function Landpage() {
+function LandingPage() {
   return (
     <Stack
       sx={{
@@ -32,4 +32,4 @@ function Landpage() {
   );
 }
 
-export default Landpage;
+export default LandingPage;
