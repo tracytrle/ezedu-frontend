@@ -26,14 +26,15 @@ export default function MenuAppBar() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:5000/@me");
-        setAuth(true);
+        const res = await axios.get("http://127.0.0.1:5000/auth");
         console.log(res.data);
         const { id, email } = res.data;
         console.log(id, email);
         setUser({ id, email });
+
+        // setAuth(true);
       } catch (error) {
-        console.log(error);
+        console.log("Not Authenticated");
       }
     })();
   }, []);
