@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Stack, Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthComponents/AuthContext";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setAuthInfo } = useContext(AuthContext);
   const navigator = useNavigate();
 
   const handleOnSubmit = async (e) => {
@@ -18,7 +20,9 @@ function LoginPage() {
         email: email,
         password: password,
       });
-      localStorage.setItem("session_id", res.data.session_id);
+      // localStorage.setItem("session_id", res.data.session_id);
+      console.log("token: " + res.data.access_token);
+      setAuthInfo(res.data.access_token);
       navigator(`/homepage`);
     } catch (error) {
       if (error.response.status === 401) {
