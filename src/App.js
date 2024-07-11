@@ -2,7 +2,7 @@ import "./App.css";
 import ThemeProvider from "./components/ThemeProvider";
 import Homepage from "./pages/HomePage";
 import LandingPage from "./pages/LandingPage";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/Loginpage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import store from "./components/store";
