@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+// import { register } from "../api/api";
 
 function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -27,6 +28,19 @@ function RegisterPage() {
       }
     }
   };
+
+  // const handleOnSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const res = await register(email, password);
+  //     alert("User registered successfully");
+  //     navigator(`/homepage`);
+  //   } catch (error) {
+  //     if (error.response.status === 401) {
+  //       alert("Invalid Credentials");
+  //     }
+  //   }
+  // };
 
   return (
     <Stack
