@@ -3,9 +3,9 @@ import { Stack, Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthComponents/AuthContext";
+import { login } from "../api/api";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -16,11 +16,7 @@ function LoginPage() {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://127.0.0.1:5000/login", {
-        email: email,
-        password: password,
-      });
-      //  console.log("token: " + res.data.access_token);
+      const res = await login(email, password);
       setAuthInfo(res.data.access_token);
       navigator(`/homepage`);
     } catch (error) {
