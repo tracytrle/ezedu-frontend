@@ -7,6 +7,8 @@ import {
 const PRIMARY = {
   main: "#f5f6fa",
   light: "#ffffff",
+  dark: "#c3c4c7",
+  opacity: "#dfe4ea",
 };
 
 const SECONDARY = {

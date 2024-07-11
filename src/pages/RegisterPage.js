@@ -5,8 +5,10 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { register } from "../api/api";
+import { useTheme } from "@mui/material/styles";
 
 function RegisterPage() {
+  const theme = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigator = useNavigate();
@@ -25,19 +27,6 @@ function RegisterPage() {
     }
   };
 
-  // const handleOnSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await register(email, password);
-  //     alert("User registered successfully");
-  //     navigator(`/homepage`);
-  //   } catch (error) {
-  //     if (error.response.status === 401) {
-  //       alert("Invalid Credentials");
-  //     }
-  //   }
-  // };
-
   return (
     <Stack
       sx={{
@@ -47,19 +36,24 @@ function RegisterPage() {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
-        backgroundColor: "#95a5a6",
+        backgroundImage: `url("./mainBG.jpg")`,
       }}
     >
       <Box
         sx={{
-          width: "400px",
+          width: {
+            xs: "100%",
+            sm: "500px",
+          },
+          maxWidth: "90%",
           height: "500px",
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
           alignItems: "center",
           border: "1px solid black",
-          backgroundColor: "#58B19F",
+          borderRadius: "10px",
+          backgroundColor: theme.palette.primary.main,
         }}
         // onSubmit={handleOnSubmit}
       >
@@ -75,6 +69,9 @@ function RegisterPage() {
           autoComplete="off"
         >
           <TextField
+            sx={{
+              "&:hover": { backgroundColor: theme.palette.primary.opacity },
+            }}
             id="standard-basic"
             label="Email"
             variant="standard"
@@ -82,6 +79,9 @@ function RegisterPage() {
             required
           />
           <TextField
+            sx={{
+              "&:hover": { backgroundColor: theme.palette.primary.opacity },
+            }}
             id="standard-basic"
             label="Password"
             variant="standard"
@@ -91,9 +91,11 @@ function RegisterPage() {
         </Box>
         <Button
           sx={{
-            backgroundColor: "#54D62C",
+            width: "80%",
+            height: "40px",
+            backgroundColor: theme.palette.primary.dark,
             marginTop: 10,
-            "&:hover": { backgroundColor: "#229A16" },
+            "&:hover": { backgroundColor: "#A3E4EA" },
           }}
           variant="contained"
           onClick={handleOnSubmit}

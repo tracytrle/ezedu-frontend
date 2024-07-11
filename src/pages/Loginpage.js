@@ -6,8 +6,10 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthComponents/AuthContext";
 import { login } from "../api/api";
+import { useTheme } from "@mui/material/styles";
 
 function LoginPage() {
+  const theme = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthInfo } = useContext(AuthContext);
@@ -35,19 +37,24 @@ function LoginPage() {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
-        backgroundColor: "#95a5a6",
+        backgroundImage: `url("./mainBG.jpg")`,
       }}
     >
       <Box
         sx={{
-          width: "400px",
+          width: {
+            xs: "100%",
+            sm: "500px",
+          },
+          maxWidth: "90%",
           height: "500px",
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
           alignItems: "center",
           border: "1px solid black",
-          backgroundColor: "#58B19F",
+          borderRadius: "10px",
+          backgroundColor: theme.palette.primary.main,
         }}
         // onSubmit={handleOnSubmit}
       >
@@ -63,13 +70,20 @@ function LoginPage() {
           autoComplete="off"
         >
           <TextField
+            sx={{
+              "&:hover": { backgroundColor: theme.palette.primary.opacity },
+            }}
             id="standard-basic"
             label="Email"
             variant="standard"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+
           <TextField
+            sx={{
+              "&:hover": { backgroundColor: theme.palette.primary.opacity },
+            }}
             id="standard-basic"
             label="Password"
             variant="standard"
@@ -79,9 +93,11 @@ function LoginPage() {
         </Box>
         <Button
           sx={{
-            backgroundColor: "#54D62C",
+            width: "80%",
+            height: "40px",
+            backgroundColor: theme.palette.primary.dark,
             marginTop: 10,
-            "&:hover": { backgroundColor: "#229A16" },
+            "&:hover": { backgroundColor: "#A3E4EA" },
           }}
           variant="contained"
           onClick={handleOnSubmit}
