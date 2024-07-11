@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { register } from "../api/api";
 import { useTheme } from "@mui/material/styles";
+import Logo from "../components/Logo";
 
 function RegisterPage() {
   const theme = useTheme();
@@ -57,7 +58,8 @@ function RegisterPage() {
         }}
         // onSubmit={handleOnSubmit}
       >
-        <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h4">
+        <Logo src={`${process.env.PUBLIC_URL}/user.png`} alt="user" size={80} />
+        <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h5">
           Create a new account
         </Typography>
         <Box

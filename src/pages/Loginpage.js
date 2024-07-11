@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthComponents/AuthContext";
 import { login } from "../api/api";
 import { useTheme } from "@mui/material/styles";
+import Logo from "../components/Logo";
 
 function LoginPage() {
   const theme = useTheme();
@@ -58,6 +59,11 @@ function LoginPage() {
         }}
         // onSubmit={handleOnSubmit}
       >
+        <Logo
+          src={`${process.env.PUBLIC_URL}/login.png`}
+          alt="login"
+          size={80}
+        />
         <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h4">
           Login
         </Typography>
