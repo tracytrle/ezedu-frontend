@@ -10,25 +10,33 @@ import store from "./components/store";
 import { Provider } from "react-redux";
 import NotFoundPage from "./pages/NotFoundPage";
 import RegisterPage from "./pages/RegisterPage";
+import { AuthProvider } from "./AuthComponents/AuthContext";
+// import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   const queryClient = new QueryClient();
   return (
-    <Router>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider>
-          <Provider store={store}>
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/notfound" element={<NotFoundPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />}></Route>
-              <Route path="/homepage" element={<Homepage />}></Route>
-            </Routes>
-          </Provider>
-        </ThemeProvider>
-      </QueryClientProvider>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider>
+            <Provider store={store}>
+              <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/notfound" element={<NotFoundPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />}></Route>
+                <Route path="/homepage" element={<Homepage />}></Route>
+                {/* <ProtectedRoute
+                  path="/protected"
+                  component={() => <h1>Protected Route</h1>}
+                /> */}
+              </Routes>
+            </Provider>
+          </ThemeProvider>
+        </QueryClientProvider>
+      </Router>
+    </AuthProvider>
   );
 }
 

@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+// import { register } from "../api/api";
 
 function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -20,13 +21,28 @@ function RegisterPage() {
       });
       console.log("session: " + res.data.session_id);
       localStorage.setItem("session_id", res.data.session_id);
-      navigator(`/homepage`);
+      navigator(`/login`);
     } catch (error) {
       if (error.response.status === 401) {
         alert("Invalid Credentials");
+      } else if (error.response.status === 409) {
+        alert("User already exists");
       }
     }
   };
+
+  // const handleOnSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const res = await register(email, password);
+  //     alert("User registered successfully");
+  //     navigator(`/homepage`);
+  //   } catch (error) {
+  //     if (error.response.status === 401) {
+  //       alert("Invalid Credentials");
+  //     }
+  //   }
+  // };
 
   return (
     <Stack
