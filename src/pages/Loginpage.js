@@ -20,7 +20,6 @@ function LoginPage() {
         email: email,
         password: password,
       });
-
       //  console.log("token: " + res.data.access_token);
       setAuthInfo(res.data.access_token);
       navigator(`/homepage`);
