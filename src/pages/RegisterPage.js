@@ -21,10 +21,12 @@ function RegisterPage() {
       });
       console.log("session: " + res.data.session_id);
       localStorage.setItem("session_id", res.data.session_id);
-      navigator(`/homepage`);
+      navigator(`/login`);
     } catch (error) {
       if (error.response.status === 401) {
         alert("Invalid Credentials");
+      } else if (error.response.status === 409) {
+        alert("User already exists");
       }
     }
   };

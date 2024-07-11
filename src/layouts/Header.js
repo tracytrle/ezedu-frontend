@@ -12,13 +12,15 @@ import Menu from "@mui/material/Menu";
 import { AuthContext } from "../AuthComponents/AuthContext";
 
 export default function MenuAppBar() {
-  const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
   // const [user, setUser] = useState({ id: "", email: "" });
-  const { logout } = useContext(AuthContext);
-
+  const { logout, authState } = useContext(AuthContext);
+  if (!authState.token) {
+    // Redirect to login if not authenticated
+    window.location.href = "/";
+    return null;
+  }
   const handleLogOut = async () => {
-    setAuth(false);
     logout();
     window.location.href = "/";
     handleClose();
@@ -47,7 +49,7 @@ export default function MenuAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             MedicAI
           </Typography>
-          {auth && (
+          {authState.token && (
             <div>
               <IconButton
                 size="large"

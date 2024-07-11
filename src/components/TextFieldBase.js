@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import { useDispatch } from "react-redux";
 import { addMessage, fetchBotResponse } from "./messagesSlice";
+import { AuthContext } from "../AuthComponents/AuthContext";
 
 export default function TextFieldBase() {
   const [tempInput, setTempInput] = useState(""); // Temporary input state

@@ -20,8 +20,8 @@ function LoginPage() {
         email: email,
         password: password,
       });
-      // localStorage.setItem("session_id", res.data.session_id);
-      console.log("token: " + res.data.access_token);
+
+      //  console.log("token: " + res.data.access_token);
       setAuthInfo(res.data.access_token);
       navigator(`/homepage`);
     } catch (error) {
