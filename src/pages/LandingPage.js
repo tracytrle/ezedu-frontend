@@ -13,6 +13,7 @@ function LandingPage() {
         display: "flex",
         justifyContent: "center",
         flexDirection: "row",
+        backgroundImage: `url("./mainBG.jpg")`,
       }}
     >
       <Box
