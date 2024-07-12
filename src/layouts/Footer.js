@@ -19,7 +19,7 @@ function MainFooter() {
           marginBottom={0}
         >
           {"Copyright © "}
-          <Link color="inherit">Ezedu</Link> {new Date().getFullYear()}
+          <Link color="inherit">MedicAI</Link> {new Date().getFullYear()}
           {"."}
         </Typography>
       </Box>
