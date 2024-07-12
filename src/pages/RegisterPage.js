@@ -58,7 +58,7 @@ function RegisterPage() {
         }}
         // onSubmit={handleOnSubmit}
       >
-        <Logo src={`${process.env.PUBLIC_URL}/user.png`} alt="user" size={80} />
+        <Logo src={`/user.png`} alt="user" size={80} />
         <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h5">
           Create a new account
         </Typography>

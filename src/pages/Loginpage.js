@@ -59,11 +59,7 @@ function LoginPage() {
         }}
         // onSubmit={handleOnSubmit}
       >
-        <Logo
-          src={`${process.env.PUBLIC_URL}/login.png`}
-          alt="login"
-          size={80}
-        />
+        <Logo src={`/login.png`} alt="login" size={80} />
         <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h4">
           Login
         </Typography>
