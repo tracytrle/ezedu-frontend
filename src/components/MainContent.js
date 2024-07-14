@@ -1,8 +1,10 @@
 import React from "react";
-import { Stack, Grid } from "@mui/material";
+import { Stack, Grid, Box } from "@mui/material";
 import TextFieldBase from "./TextFieldBase";
 import SearchModel from "./SearchModel";
 import Display from "./Display";
+import Models from "./Models";
+import CustomizedButton from "./CustomizedButton";
 
 const styles = {
   container: {
@@ -44,6 +46,17 @@ function MainContent() {
           }}
         >
           <Grid container direction="column" spacing={3} sx={{ width: "100%" }}>
+            <Grid item sx={{ mt: 2 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Models />
+                <CustomizedButton />
+              </Box>
+            </Grid>
             <Grid item sx={{ mt: 2 }}>
               <SearchModel />
             </Grid>
