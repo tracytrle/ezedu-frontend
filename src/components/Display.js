@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Box, Stack } from "@mui/material";
+import "../index.css";
 
 export default function Display() {
   const messages = useSelector((state) => state.messages);
@@ -12,6 +13,7 @@ export default function Display() {
       bottomRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
+
   return (
     <Box
       ref={containerRef}
@@ -25,6 +27,9 @@ export default function Display() {
           <div
             key={index}
             className={`message ${msg.sender}`}
+            // className={`message ${msg.sender} ${
+            //   msg.sender !== "user" ? "typing-effect" : ""
+            // }`}
             style={{
               textAlign: msg.sender === "user" ? "right" : "left",
               backgroundColor: msg.sender === "user" ? "#d1e7dd" : "#f8d7da",

@@ -8,12 +8,15 @@ import { AuthContext } from "../AuthComponents/AuthContext";
 import { login } from "../api/api";
 import { useTheme } from "@mui/material/styles";
 import Logo from "../components/Logo";
+import { IconButton, InputAdornment } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function LoginPage() {
   const theme = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthInfo } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
   const navigator = useNavigate();
 
   const handleOnSubmit = async (e) => {
@@ -88,9 +91,24 @@ function LoginPage() {
             }}
             id="standard-basic"
             label="Password"
+            type={showPassword ? "text" : "password"}
             variant="standard"
             onChange={(e) => setPassword(e.target.value)}
             required
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={() => setShowPassword(!showPassword)}
+                    onMouseDown={(e) => e.preventDefault()}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
         </Box>
         <Button
