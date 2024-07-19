@@ -3,11 +3,13 @@ import { Stack, Box, Typography } from "@mui/material";
 import ClientInfo from "../components/Forms/ClientInfo";
 
 function InfoForm() {
+  // const containerRef = useRef(null);
+  // const bottomRef = useRef(null);
   return (
     <Stack
       sx={{
         width: "100%",
-        height: "100vh",
+        height: "900px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -17,8 +19,9 @@ function InfoForm() {
     >
       <Box
         sx={{
-          width: "70%",
-          height: "90%",
+          width: "50%",
+          height: "100%",
+          overflowY: "auto",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -35,7 +38,7 @@ function InfoForm() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            flexDirection: "column",
+            flexDirection: "row",
           }}
         >
           <Typography variant="h4">Client Form</Typography>
@@ -45,9 +48,9 @@ function InfoForm() {
             width: "100%",
             height: "80%",
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "space-around",
             alignItems: "center",
-            flexDirection: "column",
+            flexDirection: "column  ",
           }}
         >
           <ClientInfo />
