@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import NotFoundPage from "./pages/NotFoundPage";
 import RegisterPage from "./pages/RegisterPage";
 import { AuthProvider } from "./AuthComponents/AuthContext";
+import InfoForm from "./pages/InfoForm";
 // import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />}></Route>
                 <Route path="/homepage" element={<Homepage />}></Route>
+                <Route path="/information" element={<InfoForm />} />
+
                 {/* <ProtectedRoute
                   path="/protected"
                   component={() => <h1>Protected Route</h1>}
