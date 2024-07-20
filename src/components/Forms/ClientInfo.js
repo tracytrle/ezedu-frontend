@@ -5,21 +5,23 @@ import DatePickerValue from "./DatePicker.Value";
 import DropoutMenu from "./DropoutMenu";
 import Typography from "@mui/material/Typography";
 import CurrentHealth from "./CurrentHealth";
-// import CustomizedCheckbox from "./CustomizedCheckbox";
+
+import PhoneTextField from "./PhoneTextField";
+import MedicalHistory from "./MedicalHistory";
 
 export default function FormPropsTextFields() {
   return (
     <Box
       component="form"
       sx={{
-        "& .MuiTextField-root": { m: 1, width: "35ch" },
+        "& .MuiTextField-root": { m: 1, width: "40ch" },
       }}
       noValidate
       autoComplete="off"
     >
       <Box sx={{ ml: 1, mb: 1 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
-          User Information
+          User Information (Required)
         </Typography>
       </Box>
       <div>
@@ -44,18 +46,33 @@ export default function FormPropsTextFields() {
           flexDirection: "row",
           justifyContent: "flex-start",
           alignItems: "center",
-          gap: 2, // Add spacing between the elements
+          // gap: 2, // Add spacing between the elements
         }}
       >
         <DatePickerValue />
-        <DropoutMenu />
         <TextField
+          sx={{
+            width: "80%",
+          }}
           required
           id="outlined-required"
           label="Email"
           // defaultValue="abc@gmail.com"
         />
+        <Box
+          sx={{
+            witdh: "100%",
+            display: "flex",
+            "& .MuiTextField-root": { m: 1, width: "26ch" },
+            justifyContent: "flex-start",
+            flexDirection: "row",
+          }}
+        >
+          <DropoutMenu />
+          <PhoneTextField />
+        </Box>
       </Box>
+
       <div>
         <TextField
           required
@@ -73,7 +90,7 @@ export default function FormPropsTextFields() {
       </div>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
-          Current Health
+          Current Health (Optional)
         </Typography>
       </Box>
       <Box
@@ -91,22 +108,21 @@ export default function FormPropsTextFields() {
       </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
-          Medical History
+          Medical History (Optional)
         </Typography>
-        <Box
-          sx={{
-            ml: 3,
-            mb: 1,
-            mt: 2,
-            mr: 10,
-
-            borderRadius: "4px", // Optional: Add rounded corners
-            padding: "16px", // Optional: Add some padding inside the box
-          }}
-        >
-          {/* <CustomizedCheckbox />
-          <CustomizedCheckbox /> */}
-        </Box>
+      </Box>
+      <Box
+        sx={{
+          ml: 3,
+          mb: 1,
+          mt: 2,
+          mr: 10,
+          border: "0.5px solid grey",
+          borderRadius: "4px", // Optional: Add rounded corners
+          padding: "16px", // Optional: Add some padding inside the box
+        }}
+      >
+        <MedicalHistory />
       </Box>
     </Box>
   );
