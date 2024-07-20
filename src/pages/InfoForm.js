@@ -18,7 +18,7 @@ function InfoForm() {
       <Box
         sx={{
           width: "50%",
-          height: "95%",
+          height: "90%",
           overflowY: "auto",
           display: "flex",
           justifyContent: "center",
@@ -32,19 +32,19 @@ function InfoForm() {
         <Box
           sx={{
             width: "100%",
-            height: "20%",
+            height: "10%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "row",
           }}
         >
-          <Typography variant="h4">Client Form</Typography>
+          <Typography variant="h4">Registration Form</Typography>
         </Box>
         <Box
           sx={{
             width: "100%",
-            height: "80%",
+            height: "90%",
             display: "flex",
             justifyContent: "space-around",
             alignItems: "center",

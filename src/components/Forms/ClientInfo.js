@@ -5,7 +5,7 @@ import DatePickerValue from "./DatePicker.Value";
 import DropoutMenu from "./DropoutMenu";
 import Typography from "@mui/material/Typography";
 import CurrentHealth from "./CurrentHealth";
-
+import AdditionalMedical from "./AdditionalMedical";
 import PhoneTextField from "./PhoneTextField";
 import MedicalHistory from "./MedicalHistory";
 
@@ -46,7 +46,6 @@ export default function FormPropsTextFields() {
           flexDirection: "row",
           justifyContent: "flex-start",
           alignItems: "center",
-          // gap: 2, // Add spacing between the elements
         }}
       >
         <DatePickerValue />
@@ -57,7 +56,6 @@ export default function FormPropsTextFields() {
           required
           id="outlined-required"
           label="Email"
-          // defaultValue="abc@gmail.com"
         />
         <Box
           sx={{
@@ -74,12 +72,7 @@ export default function FormPropsTextFields() {
       </Box>
 
       <div>
-        <TextField
-          required
-          id="outlined-required"
-          label="Address"
-          // defaultValue="Alice"
-        />
+        <TextField required id="outlined-required" label="Address" />
         <TextField id="outlined-input" label="City" />
         <TextField
           required
@@ -123,6 +116,24 @@ export default function FormPropsTextFields() {
         }}
       >
         <MedicalHistory />
+      </Box>
+      <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
+        <Typography variant="h5" fontFamily={"-moz-initial"}>
+          Additional Medication (Optional)
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          ml: 3,
+          mb: 3,
+          mt: 2,
+          mr: 10,
+          border: "0.5px solid grey",
+          borderRadius: "4px", // Optional: Add rounded corners
+          padding: "16px", // Optional: Add some padding inside the box
+        }}
+      >
+        <AdditionalMedical />
       </Box>
     </Box>
   );
