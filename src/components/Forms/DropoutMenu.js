@@ -14,7 +14,7 @@ export default function DropoutMenu() {
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }}>
+    <FormControl sx={{ m: 1, minWidth: 90 }}>
       <InputLabel>Gender</InputLabel>
 
       <Select

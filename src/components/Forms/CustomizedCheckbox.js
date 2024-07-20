@@ -1,24 +1,54 @@
-// import * as React from "react";
-// import Checkbox from "@mui/joy/Checkbox";
-// import Done from "@mui/icons-material/Done";
+import React from "react";
+import {
+  Box,
+  FormControlLabel,
+  Checkbox,
+  FormGroup,
+  Typography,
+} from "@mui/material";
 
-// export default function CustomizedCheckbox() {
-//   return (
-//     <Checkbox
-//       uncheckedIcon={<Done />}
-//       label="My unchecked icon appears on hover"
-//       slotProps={{
-//         root: ({ checked, focusVisible }) => ({
-//           sx: !checked
-//             ? {
-//                 "& svg": { opacity: focusVisible ? 1 : 0 },
-//                 "&:hover svg": {
-//                   opacity: 1,
-//                 },
-//               }
-//             : undefined,
-//         }),
-//       }}
-//     />
-//   );
-// }
+const CustomizedCheckbox = ({ question, value, onChange }) => {
+  return (
+    <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+      <Typography variant="body1" sx={{ mr: 2 }}>
+        {question}
+      </Typography>
+      <FormGroup row>
+        <FormControlLabel
+          control={
+            <Checkbox
+              sx={{
+                "&.Mui-checked": {
+                  color: "blue",
+                },
+              }}
+              checked={value === "yes"}
+              onChange={() => onChange("yes")}
+              name="yes"
+              color="primary"
+            />
+          }
+          label="Yes"
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              sx={{
+                "&.Mui-checked": {
+                  color: "blue",
+                },
+              }}
+              checked={value === "no"}
+              onChange={() => onChange("no")}
+              name="no"
+              color="primary"
+            />
+          }
+          label="No"
+        />
+      </FormGroup>
+    </Box>
+  );
+};
+
+export default CustomizedCheckbox;
