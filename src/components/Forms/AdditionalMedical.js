@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
-
 import CustomizedCheckbox from "./CustomizedCheckbox";
-import { Typography } from "@mui/material";
+import { TextField } from "@mui/material";
 
 const questions = [
   "Have you had any allegies?",
@@ -34,8 +33,12 @@ export default function MedicalHistory() {
               value={answers[question]}
               onChange={(answer) => handleAnswerChange(question, answer)}
             />
-            <Typography variant="h6">If yes: </Typography>
-            <hr />
+            <TextField
+              id="outlined-basic"
+              label="If yes, please specify:"
+              variant="outlined"
+              fullWidth
+            />
           </div>
         ))}
       </Box>

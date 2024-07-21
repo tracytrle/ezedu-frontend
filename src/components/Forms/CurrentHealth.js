@@ -12,12 +12,22 @@ const CurrentHealth = () => {
   };
 
   const checkboxes = [
-    { name: "checkbox1", label: "Checkbox 1" },
-    { name: "checkbox2", label: "Checkbox 2" },
-    { name: "checkbox3", label: "Checkbox 3" },
-    { name: "checkbox4", label: "Checkbox 4" },
-    { name: "checkbox5", label: "Checkbox 5" },
-    { name: "checkbox6", label: "Checkbox 6" },
+    { name: "headaches", label: "Headaches " },
+    { name: "cancer", label: "Cancer" },
+    { name: "diabetes", label: "Diabetes" },
+    { name: "blood clots", label: "blood clots" },
+    { name: "arthrits/tendonitis", label: "Arthrits/Tendonitis" },
+    { name: "bnormal skin condition", label: "Abnormal skin condition" },
+    { name: "high/low blood pressure", label: "High/Low blood pressure" },
+    { name: "fibromyalgia", label: "Fibromyalgia" },
+    { name: "neck/back injure", label: "Neck/Back injure" },
+    { name: "numbness", label: "Numbness" },
+    { name: "varicose veins", label: "Varicose veins" },
+    { name: "recent injury", label: "Recent injury" },
+    { name: "nursing/pregnant", label: "Nursing/Pregnant" },
+    { name: "depression", label: "Depression" },
+    { name: "fatigue", label: "Fatigue" },
+    { name: "insomnia", label: "Insomnia" },
   ];
 
   return (
