@@ -1,8 +1,8 @@
 import React from "react";
-import { Stack, Box, AppBar } from "@mui/material";
+import { Stack, Box } from "@mui/material";
 import LandpageButton from "../components/LandpageButton";
 import Typography from "@mui/material/Typography";
-// import Button from "@mui/material/Button";
+
 import DefaultAppBar from "../layouts/DefaultAppBar";
 
 function LandingPage() {

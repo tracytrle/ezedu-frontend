@@ -19,18 +19,14 @@ function appBarLabel(label) {
         {label}
       </Typography>
       <Box>
-        <IconButton
-          size="large"
-          edge="end"
-          color="inherit"
-          aria-label="account of current user"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          onClick={() => {}}
-        >
-          <Button>EN</Button>
-          <Button>VI</Button>
-        </IconButton>
+        <Box sx={{ display: "flex", gap: 2 }}>
+          <Button sx={{ color: "black", backgroundColor: "#bdc3c7" }}>
+            EN
+          </Button>
+          <Button sx={{ color: "black", backgroundColor: "#bdc3c7" }}>
+            VI
+          </Button>
+        </Box>
       </Box>
     </Toolbar>
   );
