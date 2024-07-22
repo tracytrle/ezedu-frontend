@@ -6,7 +6,7 @@ import DropoutMenu from "./DropoutMenu";
 import Typography from "@mui/material/Typography";
 import CurrentHealth from "./CurrentHealth";
 import AdditionalMedical from "./AdditionalMedical";
-import PhoneTextField from "./PhoneTextField";
+// import PhoneTextField from "./PhoneTextField";
 import MedicalHistory from "./MedicalHistory";
 
 export default function FormPropsTextFields() {
@@ -67,7 +67,7 @@ export default function FormPropsTextFields() {
           }}
         >
           <DropoutMenu />
-          <PhoneTextField />
+          {/* <PhoneTextField /> */}
         </Box>
       </Box>
 
