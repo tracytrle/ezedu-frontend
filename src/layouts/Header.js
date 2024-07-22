@@ -13,10 +13,9 @@ import { AuthContext } from "../AuthComponents/AuthContext";
 
 export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = useState(null);
-  // const [user, setUser] = useState({ id: "", email: "" });
+
   const { logout, authState } = useContext(AuthContext);
   if (!authState.token) {
-    // Redirect to login if not authenticated
     window.location.href = "/";
     return null;
   }
