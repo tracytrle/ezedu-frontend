@@ -29,7 +29,7 @@ function LoginPage() {
       navigator(`/homepage`);
     } catch (error) {
       if (error.response.status === 401) {
-        alert("Invalid Credentials");
+        alert(t("invalidCredentials"));
       }
     }
   };

@@ -26,9 +26,9 @@ function RegisterPage() {
       navigator(`/login`);
     } catch (error) {
       if (error.response.status === 401) {
-        alert("Invalid Credentials");
+        alert(t("invalidCredentials"));
       } else if (error.response.status === 409) {
-        alert("User already exists");
+        alert(t("emailAlreadyExists"));
       }
     }
   };

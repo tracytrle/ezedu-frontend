@@ -10,8 +10,10 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { AuthContext } from "../context/authContext/AuthContext";
+import { useTranslation } from "react-i18next";
 
 export default function MenuAppBar() {
+  const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const { logout, authState } = useContext(AuthContext);
@@ -75,9 +77,9 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleLogOut}>Log out</MenuItem>
+                <MenuItem onClick={handleClose}>{t("profile")}</MenuItem>
+                <MenuItem onClick={handleClose}>{t("myAccount")}</MenuItem>
+                <MenuItem onClick={handleLogOut}>{t("logout")}</MenuItem>
               </Menu>
             </div>
           )}
