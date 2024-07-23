@@ -9,14 +9,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { AuthContext } from "../AuthComponents/AuthContext";
+import { AuthContext } from "../context/authContext/AuthContext";
 
 export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = useState(null);
-  // const [user, setUser] = useState({ id: "", email: "" });
+
   const { logout, authState } = useContext(AuthContext);
   if (!authState.token) {
-    // Redirect to login if not authenticated
     window.location.href = "/";
     return null;
   }

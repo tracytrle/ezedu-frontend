@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "../api/config";
+import { BACKEND_URL } from "../../api/config";
 
 const getResponse = async (searchInput) => {
   const response = await fetch(`${BACKEND_URL}?messages=${searchInput}`, {

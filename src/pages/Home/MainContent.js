@@ -1,10 +1,10 @@
 import React from "react";
 import { Stack, Grid, Box } from "@mui/material";
-import TextFieldBase from "./TextFieldBase";
+import TextFieldBase from "../../context/messages/TextFieldBase";
 import SearchModel from "./SearchModel";
-import Display from "./Display";
-import Models from "./Models";
-import CustomizedButton from "./CustomizedButton";
+import Display from "../../context/messages/Display";
+import Models from "../../components/ui/Models";
+import CustomizedButton from "../../components/ui/CustomizedButton";
 
 const styles = {
   container: {

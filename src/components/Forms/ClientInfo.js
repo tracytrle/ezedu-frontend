@@ -8,6 +8,7 @@ import CurrentHealth from "./CurrentHealth";
 import AdditionalMedical from "./AdditionalMedical";
 // import PhoneTextField from "./PhoneTextField";
 import MedicalHistory from "./MedicalHistory";
+import PhoneInput from "./PhoneInput";
 
 export default function FormPropsTextFields() {
   return (
@@ -61,13 +62,13 @@ export default function FormPropsTextFields() {
           sx={{
             witdh: "100%",
             display: "flex",
-            "& .MuiTextField-root": { m: 1, width: "26ch" },
+            "& .MuiTextField-root": { m: 1, width: "28ch" },
             justifyContent: "flex-start",
             flexDirection: "row",
           }}
         >
           <DropoutMenu />
-          {/* <PhoneTextField /> */}
+          <PhoneInput />
         </Box>
       </Box>
 

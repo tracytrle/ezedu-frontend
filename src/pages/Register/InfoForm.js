@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Box, Typography } from "@mui/material";
-import ClientInfo from "../components/Forms/ClientInfo";
+import ClientInfo from "../../components/forms/ClientInfo";
 
 function InfoForm() {
   return (

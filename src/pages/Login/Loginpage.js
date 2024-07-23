@@ -1,32 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Stack, Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import { register } from "../api/api";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { login } from "../../api/api";
 import { useTheme } from "@mui/material/styles";
-import Logo from "../components/Logo";
+import Logo from "../../components/ui/Logo";
 import { IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
-function RegisterPage() {
+function LoginPage() {
   const theme = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setAuthInfo } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigator = useNavigate();
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-      await register(email, password);
-      navigator(`/login`);
+      const res = await login(email, password);
+      setAuthInfo(res.data.access_token);
+      navigator(`/homepage`);
     } catch (error) {
       if (error.response.status === 401) {
         alert("Invalid Credentials");
-      } else if (error.response.status === 409) {
-        alert("User already exists");
       }
     }
   };
@@ -61,9 +62,9 @@ function RegisterPage() {
         }}
         // onSubmit={handleOnSubmit}
       >
-        <Logo src={`/user.png`} alt="user" size={80} />
-        <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h5">
-          Create a new account
+        <Logo src={`/login.png`} alt="login" size={80} />
+        <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h4">
+          Login
         </Typography>
         <Box
           component="form"
@@ -83,14 +84,15 @@ function RegisterPage() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+
           <TextField
             sx={{
               "&:hover": { backgroundColor: theme.palette.primary.opacity },
             }}
             id="standard-basic"
             label="Password"
-            variant="standard"
             type={showPassword ? "text" : "password"}
+            variant="standard"
             onChange={(e) => setPassword(e.target.value)}
             required
             InputProps={{
@@ -120,11 +122,11 @@ function RegisterPage() {
           variant="contained"
           onClick={handleOnSubmit}
         >
-          Register
+          Sign In
         </Button>
       </Box>
     </Stack>
   );
 }
 
-export default RegisterPage;
+export default LoginPage;

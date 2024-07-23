@@ -1,17 +1,17 @@
 import "./App.css";
-import ThemeProvider from "./components/ThemeProvider";
-import Homepage from "./pages/HomePage";
-import LandingPage from "./pages/LandingPage";
-import LoginPage from "./pages/Loginpage";
+import ThemeProvider from "./context/theme/ThemeProvider";
+import Homepage from "./pages/Home/HomePage";
+import LandingPage from "./pages/Landing/LandingPage";
+import LoginPage from "./pages/Login/Loginpage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import store from "./components/store";
+import store from "./context/messages/store";
 
 import { Provider } from "react-redux";
-import NotFoundPage from "./pages/NotFoundPage";
-import RegisterPage from "./pages/RegisterPage";
-import { AuthProvider } from "./AuthComponents/AuthContext";
-import InfoForm from "./pages/InfoForm";
+import NotFoundPage from "./pages/Register/NotFoundPage";
+import RegisterPage from "./pages/Register/RegisterPage";
+import { AuthProvider } from "./context/authContext/AuthContext";
+import InfoForm from "./pages/Register/InfoForm";
 // import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
