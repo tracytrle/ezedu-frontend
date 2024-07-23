@@ -2,10 +2,11 @@ import React from "react";
 import { Stack, Box } from "@mui/material";
 import LandpageButton from "./LandpageButton";
 import Typography from "@mui/material/Typography";
-
 import DefaultAppBar from "../../layouts/DefaultAppBar";
+import { useTranslation } from "react-i18next";
 
 function LandingPage() {
+  const { t } = useTranslation();
   return (
     <Stack
       sx={{
@@ -31,7 +32,7 @@ function LandingPage() {
         }}
       >
         <Typography sx={{ mb: 5 }} variant="h4">
-          Welcome to MedicAI
+          {t("welcome")}
         </Typography>
         <LandpageButton />
       </Box>

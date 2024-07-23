@@ -1,8 +1,10 @@
 import React from "react";
 import { Stack } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import { useTranslation } from "react-i18next";
 
 function NotFoundPage() {
+  const { t } = useTranslation();
   return (
     <Stack
       sx={{
@@ -15,7 +17,7 @@ function NotFoundPage() {
       }}
     >
       <Typography sx={{ mb: 5, fontFamily: "inherit" }} variant="h2">
-        404 NOT FOUND
+        {t("notFoundPage")}
       </Typography>
     </Stack>
   );

@@ -3,8 +3,10 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 
 export default function LandpageButton() {
+  const { t } = useTranslation();
   const theme = useTheme();
   const navigate = useNavigate();
 
@@ -22,14 +24,14 @@ export default function LandpageButton() {
         sx={{ backgroundColor: theme.palette.primary.dark }}
         variant="contained"
       >
-        Sign In
+        {t("signin")}
       </Button>
       <Button
         sx={{ backgroundColor: theme.palette.primary.dark }}
         variant="contained"
         onClick={() => handleRegister()}
       >
-        Register
+        {t("register")}
       </Button>
     </Stack>
   );

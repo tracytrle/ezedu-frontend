@@ -1,0 +1,12 @@
+{
+  "welcome": "Chào mừng đến với MedicAI",
+  "description": "Đây là một ứng dụng mẫu",
+  "signin": "ĐĂNG NHẬP",
+  "signup": "ĐĂNG XUẤT",
+  "login": "ĐĂNG NHẬP",
+  "register": "ĐĂNG KÝ",
+  "createAccount": "Tạo tài khoản mới",
+  "notFoundPage": "404 Trang không tồn tại",
+  "email": "Email",
+  "password": "Mật khẩu"
+}

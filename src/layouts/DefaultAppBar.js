@@ -8,19 +8,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { useTranslation } from "react-i18next";
 
-const language = [
-  {
-    id: 1,
-    name: "EN",
-  },
-  {
-    id: 2,
-    name: "VI",
-  },
-];
-
-function appBarLabel(label) {
+function AppBarLabel({ label, changeLanguage }) {
   return (
     <Toolbar>
       <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
@@ -31,14 +21,18 @@ function appBarLabel(label) {
       </Typography>
       <Box>
         <Box sx={{ display: "flex", gap: 2 }}>
-          {language.map((item) => (
-            <Button
-              key={item.id}
-              sx={{ color: "black", backgroundColor: "#bdc3c7" }}
-            >
-              {item.name}
-            </Button>
-          ))}
+          <Button
+            sx={{ color: "black", backgroundColor: "#bdc3c7" }}
+            onClick={() => changeLanguage("vi")}
+          >
+            VI
+          </Button>
+          <Button
+            sx={{ color: "black", backgroundColor: "#bdc3c7" }}
+            onClick={() => changeLanguage("en")}
+          >
+            EN
+          </Button>
         </Box>
       </Box>
     </Toolbar>
@@ -55,11 +49,17 @@ const whiteTheme = createTheme({
 });
 
 export default function DefaultAppBar() {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <Stack spacing={2} sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={whiteTheme}>
         <AppBar position="static" color="primary" enableColorOnDark>
-          {appBarLabel("MedicAI")}
+          <AppBarLabel label="MedicAI" changeLanguage={changeLanguage} />
         </AppBar>
       </ThemeProvider>
     </Stack>

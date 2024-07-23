@@ -1,0 +1,12 @@
+{
+  "welcome": "Welcome to MedicAI",
+  "description": "This is a sample application",
+  "signin": "SIGN IN",
+  "signup": "SIGN UP",
+  "login": "LOGIN",
+  "register": "REGISTER",
+  "createAccount": "Create an new account",
+  "notFoundPage": "404 Page not found",
+  "email": "Email",
+  "password": "Password"
+}
