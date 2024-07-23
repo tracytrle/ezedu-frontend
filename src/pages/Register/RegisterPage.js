@@ -9,8 +9,10 @@ import { useTheme } from "@mui/material/styles";
 import Logo from "../../components/ui/Logo";
 import { IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useTranslation } from "react-i18next";
 
 function RegisterPage() {
+  const { t } = useTranslation();
   const theme = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -63,7 +65,7 @@ function RegisterPage() {
       >
         <Logo src={`/user.png`} alt="user" size={80} />
         <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h5">
-          Create a new account
+          {t("createAccount")}
         </Typography>
         <Box
           component="form"
@@ -78,7 +80,7 @@ function RegisterPage() {
               "&:hover": { backgroundColor: theme.palette.primary.opacity },
             }}
             id="standard-basic"
-            label="Email"
+            label={t("email")}
             variant="standard"
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -88,7 +90,7 @@ function RegisterPage() {
               "&:hover": { backgroundColor: theme.palette.primary.opacity },
             }}
             id="standard-basic"
-            label="Password"
+            label={t("password")}
             variant="standard"
             type={showPassword ? "text" : "password"}
             onChange={(e) => setPassword(e.target.value)}
@@ -120,7 +122,7 @@ function RegisterPage() {
           variant="contained"
           onClick={handleOnSubmit}
         >
-          Register
+          {t("register")}
         </Button>
       </Box>
     </Stack>

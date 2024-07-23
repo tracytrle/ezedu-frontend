@@ -10,8 +10,10 @@ import { useTheme } from "@mui/material/styles";
 import Logo from "../../components/ui/Logo";
 import { IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useTranslation } from "react-i18next";
 
 function LoginPage() {
+  const { t } = useTranslation();
   const theme = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -64,7 +66,7 @@ function LoginPage() {
       >
         <Logo src={`/login.png`} alt="login" size={80} />
         <Typography sx={{ mb: 5, fontFamily: "serif" }} variant="h4">
-          Login
+          {t("login")}
         </Typography>
         <Box
           component="form"
@@ -79,7 +81,7 @@ function LoginPage() {
               "&:hover": { backgroundColor: theme.palette.primary.opacity },
             }}
             id="standard-basic"
-            label="Email"
+            label={t("email")}
             variant="standard"
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -90,7 +92,7 @@ function LoginPage() {
               "&:hover": { backgroundColor: theme.palette.primary.opacity },
             }}
             id="standard-basic"
-            label="Password"
+            label={t("password")}
             type={showPassword ? "text" : "password"}
             variant="standard"
             onChange={(e) => setPassword(e.target.value)}
@@ -122,7 +124,7 @@ function LoginPage() {
           variant="contained"
           onClick={handleOnSubmit}
         >
-          Sign In
+          {t("signin")}
         </Button>
       </Box>
     </Stack>
