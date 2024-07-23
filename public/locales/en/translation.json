@@ -4,9 +4,14 @@
   "signin": "SIGN IN",
   "signup": "SIGN UP",
   "login": "LOGIN",
+  "logout": "Logout",
   "register": "REGISTER",
   "createAccount": "Create an new account",
   "notFoundPage": "404 Page not found",
   "email": "Email",
-  "password": "Password"
+  "password": "Password",
+  "profile": "Profile",
+  "myAccount": "My Account",
+  "invalidCredentials": "Invalid credentials",
+  "emailAlreadyExists": "Email already exists"
 }

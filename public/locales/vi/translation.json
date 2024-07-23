@@ -4,9 +4,14 @@
   "signin": "ĐĂNG NHẬP",
   "signup": "ĐĂNG XUẤT",
   "login": "ĐĂNG NHẬP",
+  "logout": "Đăng xuất",
   "register": "ĐĂNG KÝ",
   "createAccount": "Tạo tài khoản mới",
   "notFoundPage": "404 Trang không tồn tại",
   "email": "Email",
-  "password": "Mật khẩu"
+  "password": "Mật khẩu",
+  "profile": "Hồ sơ",
+  "myAccount": "Tài khoản của tôi",
+  "invalidCredentials": "Thông tin đăng nhập không hợp lệ",
+  "emailAlreadyExists": "Email đã tồn tại"
 }

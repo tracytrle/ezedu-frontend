@@ -27,9 +27,6 @@ export default function Display() {
           <div
             key={index}
             className={`message ${msg.sender}`}
-            // className={`message ${msg.sender} ${
-            //   msg.sender !== "user" ? "typing-effect" : ""
-            // }`}
             style={{
               textAlign: msg.sender === "user" ? "right" : "left",
               backgroundColor: msg.sender === "user" ? "#d1e7dd" : "#f8d7da",
