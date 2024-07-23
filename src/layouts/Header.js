@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { AuthContext } from "../AuthComponents/AuthContext";
+import { AuthContext } from "../context/authContext/AuthContext";
 
 export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = useState(null);

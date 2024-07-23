@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import getResponse from "./getResponse";
+import getResponse from "../../components/message/getResponse";
 
 export const fetchBotResponse = createAsyncThunk(
   "messages/fetchBotResponse",

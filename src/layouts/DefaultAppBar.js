@@ -9,7 +9,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
-function appBarLabel(label) {
+function DefaultAppBar(label) {
   return (
     <Toolbar>
       <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
@@ -46,7 +46,7 @@ export default function EnableColorOnDarkAppBar() {
     <Stack spacing={2} sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={whiteTheme}>
         <AppBar position="static" color="primary" enableColorOnDark>
-          {appBarLabel("MedicAI")}
+          {DefaultAppBar("MedicAI")}
         </AppBar>
       </ThemeProvider>
     </Stack>

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Box, Stack } from "@mui/material";
-import "../index.css";
+import "../../index.css";
 
 export default function Display() {
   const messages = useSelector((state) => state.messages);
