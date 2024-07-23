@@ -9,7 +9,18 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
-function DefaultAppBar(label) {
+const language = [
+  {
+    id: 1,
+    name: "EN",
+  },
+  {
+    id: 2,
+    name: "VI",
+  },
+];
+
+function appBarLabel(label) {
   return (
     <Toolbar>
       <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
@@ -20,12 +31,14 @@ function DefaultAppBar(label) {
       </Typography>
       <Box>
         <Box sx={{ display: "flex", gap: 2 }}>
-          <Button sx={{ color: "black", backgroundColor: "#bdc3c7" }}>
-            EN
-          </Button>
-          <Button sx={{ color: "black", backgroundColor: "#bdc3c7" }}>
-            VI
-          </Button>
+          {language.map((item) => (
+            <Button
+              key={item.id}
+              sx={{ color: "black", backgroundColor: "#bdc3c7" }}
+            >
+              {item.name}
+            </Button>
+          ))}
         </Box>
       </Box>
     </Toolbar>
@@ -41,12 +54,12 @@ const whiteTheme = createTheme({
   },
 });
 
-export default function EnableColorOnDarkAppBar() {
+export default function DefaultAppBar() {
   return (
     <Stack spacing={2} sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={whiteTheme}>
         <AppBar position="static" color="primary" enableColorOnDark>
-          {DefaultAppBar("MedicAI")}
+          {appBarLabel("MedicAI")}
         </AppBar>
       </ThemeProvider>
     </Stack>
