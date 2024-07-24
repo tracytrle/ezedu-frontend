@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { TextField } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const PhoneInput = () => {
+  const { t } = useTranslation();
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const handleChange = (e) => {
@@ -11,7 +13,7 @@ const PhoneInput = () => {
   return (
     <TextField
       id="outlined-basic"
-      label="Phone Number"
+      label={t("phoneNumber")}
       variant="outlined"
       fullWidth
       value={phoneNumber}

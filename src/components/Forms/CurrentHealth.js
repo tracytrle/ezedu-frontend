@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Grid, Checkbox, FormControlLabel } from "@mui/material";
+import data from "../../data/data.json";
+import { useTranslation } from "react-i18next";
 
 const CurrentHealth = () => {
+  const { t } = useTranslation();
   const [checkedItems, setCheckedItems] = useState({});
 
   const handleChange = (event) => {
@@ -11,25 +14,7 @@ const CurrentHealth = () => {
     });
   };
 
-  const checkboxes = [
-    { name: "headaches", label: "Headaches " },
-    { name: "cancer", label: "Cancer" },
-    { name: "diabetes", label: "Diabetes" },
-    { name: "blood clots", label: "blood clots" },
-    { name: "arthrits/tendonitis", label: "Arthrits/Tendonitis" },
-    { name: "bnormal skin condition", label: "Abnormal skin condition" },
-    { name: "high/low blood pressure", label: "High/Low blood pressure" },
-    { name: "fibromyalgia", label: "Fibromyalgia" },
-    { name: "neck/back injure", label: "Neck/Back injure" },
-    { name: "numbness", label: "Numbness" },
-    { name: "varicose veins", label: "Varicose veins" },
-    { name: "recent injury", label: "Recent injury" },
-    { name: "nursing/pregnant", label: "Nursing/Pregnant" },
-    { name: "depression", label: "Depression" },
-    { name: "fatigue", label: "Fatigue" },
-    { name: "insomnia", label: "Insomnia" },
-  ];
-
+  const checkboxes = data.healthCheckboxes;
   return (
     <Grid container spacing={2}>
       {checkboxes.map((item) => (
@@ -47,7 +32,7 @@ const CurrentHealth = () => {
                 name={item.name}
               />
             }
-            label={item.label}
+            label={t(item.label)}
           />
         </Grid>
       ))}

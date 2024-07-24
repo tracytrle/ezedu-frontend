@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import CustomizedCheckbox from "./CustomizedCheckbox";
 import { TextField } from "@mui/material";
+import data from "../../data/data.json";
+import { useTranslation } from "react-i18next";
 
-const questions = [
-  "Have you had any allegies?",
-  "Have you taken any medicine?",
-];
+const questions = data.additionalQuestions;
 
 export default function MedicalHistory() {
+  const { t } = useTranslation();
   const [answers, setAnswers] = useState({});
 
   const handleAnswerChange = (question, answer) => {
@@ -29,13 +29,13 @@ export default function MedicalHistory() {
           <div>
             <CustomizedCheckbox
               key={question}
-              question={question}
+              question={t(question)}
               value={answers[question]}
               onChange={(answer) => handleAnswerChange(question, answer)}
             />
             <TextField
               id="outlined-basic"
-              label="If yes, please specify:"
+              label={t("specify")}
               variant="outlined"
               fullWidth
             />
