@@ -26,7 +26,15 @@ export default function FormPropsTextFields() {
           {t("userInformation")} ({t("required")})
         </Typography>
       </Box>
-      <div>
+      <Box
+        sx={{
+          width: "100%",
+          display: { xs: "flex", sm: "block" },
+          justifyItems: { xs: "flex-start" },
+          alignItems: { xs: "center" },
+          flexDirection: { xs: "column" },
+        }}
+      >
         <TextField
           required
           id="outlined-required"
@@ -44,40 +52,31 @@ export default function FormPropsTextFields() {
           label={t("lastName")}
           defaultValue="Wong"
         />
-      </div>
+      </Box>
       <Box
         sx={{
-          witdh: "100%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "flex-start",
-          alignItems: "center",
+          width: "100%",
+          display: "block",
+          justifyItems: "flex-start",
         }}
       >
         <DatePickerValue />
-        <TextField
-          sx={{
-            width: "80%",
-          }}
-          required
-          id="outlined-required"
-          label={t("email")}
-        />
-        <Box
-          sx={{
-            witdh: "100%",
-            display: "flex",
-            "& .MuiTextField-root": { m: 1, width: "28ch" },
-            justifyContent: "flex-start",
-            flexDirection: "row",
-          }}
-        >
-          <DropoutMenu />
-          <PhoneInput />
-        </Box>
+        <DropoutMenu />
+      </Box>
+      <Box>
+        <TextField required id="outlined-required" label={t("email")} />
+        <PhoneInput sx={{ maxWidth: "80px" }} />
       </Box>
 
-      <div>
+      <Box
+        sx={{
+          width: "100%",
+          display: { xs: "flex", sm: "block" },
+          justifyItems: { xs: "flex-start" },
+          alignItems: { xs: "center" },
+          flexDirection: { xs: "column" },
+        }}
+      >
         <TextField required id="outlined-required" label={t("address")} />
         <TextField id="outlined-input" label={t("city")} />
         <TextField
@@ -86,7 +85,7 @@ export default function FormPropsTextFields() {
           label={t("country")}
           defaultValue="Vietnam"
         />
-      </div>
+      </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
           {t("currentHealth")} ({t("optional")})
