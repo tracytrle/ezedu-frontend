@@ -3,11 +3,13 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { InputLabel } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const genders = ["Male", "Female", "Not Specific"];
 
 export default function DropoutMenu() {
   const [gender, setGender] = React.useState("Male");
+  const { t } = useTranslation();
 
   const handleChange = (event) => {
     setGender(event.target.value);
@@ -15,11 +17,11 @@ export default function DropoutMenu() {
 
   return (
     <FormControl sx={{ m: 1, minWidth: 90 }}>
-      <InputLabel>Gender</InputLabel>
+      <InputLabel>{t("gender")}</InputLabel>
 
       <Select
         value={gender}
-        label="Gender"
+        label={t("gender")}
         onChange={handleChange}
         displayEmpty
         inputProps={{ "aria-label": "Without label" }}

@@ -6,11 +6,12 @@ import DropoutMenu from "./DropoutMenu";
 import Typography from "@mui/material/Typography";
 import CurrentHealth from "./CurrentHealth";
 import AdditionalMedical from "./AdditionalMedical";
-// import PhoneTextField from "./PhoneTextField";
 import MedicalHistory from "./MedicalHistory";
 import PhoneInput from "./PhoneInput";
+import { useTranslation } from "react-i18next";
 
 export default function FormPropsTextFields() {
+  const { t } = useTranslation();
   return (
     <Box
       component="form"
@@ -22,21 +23,25 @@ export default function FormPropsTextFields() {
     >
       <Box sx={{ ml: 1, mb: 1 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
-          User Information (Required)
+          {t("userInformation")} ({t("required")})
         </Typography>
       </Box>
       <div>
         <TextField
           required
           id="outlined-required"
-          label="First Name"
+          label={t("firstName")}
           defaultValue="Alice"
         />
-        <TextField id="outlined-input" label="Middle Name" defaultValue="T" />
+        <TextField
+          id="outlined-input"
+          label={t("middleName")}
+          defaultValue="T"
+        />
         <TextField
           required
           id="outlined-required"
-          label="Last Name"
+          label={t("lastName")}
           defaultValue="Wong"
         />
       </div>
@@ -56,7 +61,7 @@ export default function FormPropsTextFields() {
           }}
           required
           id="outlined-required"
-          label="Email"
+          label={t("email")}
         />
         <Box
           sx={{
@@ -73,18 +78,18 @@ export default function FormPropsTextFields() {
       </Box>
 
       <div>
-        <TextField required id="outlined-required" label="Address" />
-        <TextField id="outlined-input" label="City" />
+        <TextField required id="outlined-required" label={t("address")} />
+        <TextField id="outlined-input" label={t("city")} />
         <TextField
           required
           id="outlined-required"
-          label="Country"
+          label={t("country")}
           defaultValue="Vietnam"
         />
       </div>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
-          Current Health (Optional)
+          {t("currentHealth")} ({t("optional")})
         </Typography>
       </Box>
       <Box
@@ -102,7 +107,7 @@ export default function FormPropsTextFields() {
       </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
-          Medical History (Optional)
+          {t("medicalHistory")} ({t("optional")})
         </Typography>
       </Box>
       <Box
@@ -120,7 +125,7 @@ export default function FormPropsTextFields() {
       </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
-          Additional Medication (Optional)
+          {t("additionalHealthRecord")} ({t("optional")})
         </Typography>
       </Box>
       <Box

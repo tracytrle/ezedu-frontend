@@ -6,12 +6,14 @@ import {
   FormGroup,
   Typography,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const CustomizedCheckbox = ({ question, value, onChange }) => {
+  const { t } = useTranslation();
   return (
     <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
       <Typography variant="body1" sx={{ mr: 2 }}>
-        {question}
+        {t(question)}
       </Typography>
       <FormGroup row>
         <FormControlLabel
@@ -28,7 +30,7 @@ const CustomizedCheckbox = ({ question, value, onChange }) => {
               color="primary"
             />
           }
-          label="Yes"
+          label={t("yes")}
         />
         <FormControlLabel
           control={
@@ -44,7 +46,7 @@ const CustomizedCheckbox = ({ question, value, onChange }) => {
               color="primary"
             />
           }
-          label="No"
+          label={t("no")}
         />
       </FormGroup>
     </Box>

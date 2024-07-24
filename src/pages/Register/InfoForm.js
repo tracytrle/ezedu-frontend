@@ -1,8 +1,10 @@
 import React from "react";
 import { Stack, Box, Typography } from "@mui/material";
 import ClientInfo from "../../components/forms/ClientInfo";
+import { useTranslation } from "react-i18next";
 
 function InfoForm() {
+  const { t } = useTranslation();
   return (
     <Stack
       sx={{
@@ -36,17 +38,17 @@ function InfoForm() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            flexDirection: "row",
+            flexDirection: "column",
           }}
         >
-          <Typography variant="h4">Registration Form</Typography>
+          <Typography variant="h4">{t("registrationForm")}</Typography>
         </Box>
         <Box
           sx={{
             width: "100%",
             height: "90%",
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: "space-aroundcente",
             alignItems: "center",
             flexDirection: "column  ",
             ml: 3,

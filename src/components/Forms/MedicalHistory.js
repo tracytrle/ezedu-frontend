@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
+import { useTranslation } from "react-i18next";
+import data from "../../data/data.json";
 
 import CustomizedCheckbox from "./CustomizedCheckbox";
 
-const questions = [
-  "Do you have a history of heart/circulation problems?",
-  "Have you had any surgeries?",
-  "Do you have a chronic illness?",
-  "Do you have a high/low blood pressure?",
-];
+const questions = data.questions;
 
 export default function MedicalHistory() {
+  const { t } = useTranslation();
   const [answers, setAnswers] = useState({});
 
   const handleAnswerChange = (question, answer) => {
@@ -31,7 +29,7 @@ export default function MedicalHistory() {
         {questions.map((question) => (
           <CustomizedCheckbox
             key={question}
-            question={question}
+            question={t(question)}
             value={answers[question]}
             onChange={(answer) => handleAnswerChange(question, answer)}
           />

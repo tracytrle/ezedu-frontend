@@ -1,0 +1,28 @@
+{
+  "questions": [
+    "heartQuesion",
+    "surgeriesQuestion",
+    "chronicIllnessQuestion",
+    "bloodPressureQuestion"
+  ],
+  "additionalQuestions": ["allegiesQuestion", "medicineQuestion"],
+
+  "healthCheckboxes": [
+    { "name": "headaches", "label": "Headaches" },
+    { "name": "cancer", "label": "Cancer" },
+    { "name": "diabetes", "label": "Diabetes" },
+    { "name": "blood clots", "label": "BloodClots" },
+    { "name": "arthritis/tendonitis", "label": "ArthritisTendonitis" },
+    { "name": "abnormal skin condition", "label": "AbnormalSkinCondition" },
+    { "name": "high/low blood pressure", "label": "HighOrLowBloobPressure" },
+    { "name": "fibromyalgia", "label": "Fibromyalgia" },
+    { "name": "neck/back injury", "label": "NeckBackInjury" },
+    { "name": "numbness", "label": "Numbness" },
+    { "name": "varicose veins", "label": "VaricoseVeins" },
+    { "name": "recent injury", "label": "RecentInjury" },
+    { "name": "nursing/pregnant", "label": "NursingPregnant" },
+    { "name": "depression", "label": "Depression" },
+    { "name": "fatigue", "label": "Fatigue" },
+    { "name": "insomnia", "label": "Insomnia" }
+  ]
+}
