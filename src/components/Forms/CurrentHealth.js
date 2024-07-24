@@ -18,7 +18,7 @@ const CurrentHealth = () => {
   return (
     <Grid container spacing={2}>
       {checkboxes.map((item) => (
-        <Grid item xs={4} md={3} key={item.name}>
+        <Grid item xs={4} md={3} key={item.label}>
           <FormControlLabel
             control={
               <Checkbox
@@ -27,9 +27,9 @@ const CurrentHealth = () => {
                     color: "blue",
                   },
                 }}
-                checked={checkedItems[item.name] || false}
+                checked={checkedItems[item.label] || false}
                 onChange={handleChange}
-                name={item.name}
+                label={item.label}
               />
             }
             label={t(item.label)}
