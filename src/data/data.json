@@ -1,29 +1,26 @@
 {
   "questions": [
-    "Do you have a history of heart/circulation problems?",
-    "Have you had any surgeries?",
-    "Do you have a chronic illness?",
-    "Do you have a high/low blood pressure?"
+    "heartQuesion",
+    "surgeriesQuestion",
+    "chronicIllnessQuestion",
+    "bloodPressureQuestion"
   ],
-  "additionalQuestions": [
-    "Have you had any allegies?",
-    "Have you taken any medicine?"
-  ],
+  "additionalQuestions": ["allegiesQuestion", "medicineQuestion"],
 
   "healthCheckboxes": [
     { "name": "headaches", "label": "Headaches" },
     { "name": "cancer", "label": "Cancer" },
     { "name": "diabetes", "label": "Diabetes" },
-    { "name": "blood clots", "label": "Blood clots" },
-    { "name": "arthritis/tendonitis", "label": "Arthritis/Tendonitis" },
-    { "name": "abnormal skin condition", "label": "Abnormal skin condition" },
-    { "name": "high/low blood pressure", "label": "High/Low blood pressure" },
+    { "name": "blood clots", "label": "BloodClots" },
+    { "name": "arthritis/tendonitis", "label": "ArthritisTendonitis" },
+    { "name": "abnormal skin condition", "label": "AbnormalSkinCondition" },
+    { "name": "high/low blood pressure", "label": "HighOrLowBloobPressure" },
     { "name": "fibromyalgia", "label": "Fibromyalgia" },
-    { "name": "neck/back injury", "label": "Neck/Back injury" },
+    { "name": "neck/back injury", "label": "NeckBackInjury" },
     { "name": "numbness", "label": "Numbness" },
-    { "name": "varicose veins", "label": "Varicose veins" },
-    { "name": "recent injury", "label": "Recent injury" },
-    { "name": "nursing/pregnant", "label": "Nursing/Pregnant" },
+    { "name": "varicose veins", "label": "VaricoseVeins" },
+    { "name": "recent injury", "label": "RecentInjury" },
+    { "name": "nursing/pregnant", "label": "NursingPregnant" },
     { "name": "depression", "label": "Depression" },
     { "name": "fatigue", "label": "Fatigue" },
     { "name": "insomnia", "label": "Insomnia" }
