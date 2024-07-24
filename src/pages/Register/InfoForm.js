@@ -13,7 +13,7 @@ function InfoForm() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        flexDirection: "row",
+        flexDirection: "column",
         backgroundImage: `url("./mainBG.jpg")`,
       }}
     >
@@ -45,12 +45,12 @@ function InfoForm() {
         </Box>
         <Box
           sx={{
-            width: "100%",
+            width: "95%",
             height: "90%",
             display: "flex",
-            justifyContent: "space-aroundcente",
+            justifyContent: "space-around",
             alignItems: "center",
-            flexDirection: "column  ",
+            flexDirection: "column",
             ml: 3,
           }}
         >
