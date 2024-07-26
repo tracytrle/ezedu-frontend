@@ -11,6 +11,11 @@ import Button from "@mui/material/Button";
 import { useTranslation } from "react-i18next";
 
 function AppBarLabel({ label, changeLanguage }) {
+  const buttonStyles = {
+    "&:hover": {
+      backgroundColor: "#81ecec", // Change to the desired hover color
+    },
+  };
   return (
     <Toolbar>
       <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
@@ -22,13 +27,13 @@ function AppBarLabel({ label, changeLanguage }) {
       <Box>
         <Box sx={{ display: "flex", gap: 2 }}>
           <Button
-            sx={{ color: "black", backgroundColor: "#bdc3c7" }}
+            sx={{ ...buttonStyles, color: "black", backgroundColor: "#bdc3c7" }}
             onClick={() => changeLanguage("vi")}
           >
             VI
           </Button>
           <Button
-            sx={{ color: "black", backgroundColor: "#bdc3c7" }}
+            sx={{ ...buttonStyles, color: "black", backgroundColor: "#bdc3c7" }}
             onClick={() => changeLanguage("en")}
           >
             EN
