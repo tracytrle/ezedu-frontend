@@ -12,6 +12,7 @@ import NotFoundPage from "./pages/Register/NotFoundPage";
 import RegisterPage from "./pages/Register/RegisterPage";
 import { AuthProvider } from "./context/authContext/AuthContext";
 import InfoForm from "./pages/Register/InfoForm";
+import Registration from "./pages/Register/Registration";
 // import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
@@ -26,9 +27,10 @@ function App() {
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/notfound" element={<NotFoundPage />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />}></Route>
+                {/* <Route path="/register" element={<RegisterPage />}></Route> */}
                 <Route path="/homepage" element={<Homepage />}></Route>
                 <Route path="/information" element={<InfoForm />} />
+                <Route path="/register" element={<Registration />} />
 
                 {/* <ProtectedRoute
                   path="/protected"

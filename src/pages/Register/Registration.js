@@ -1,0 +1,333 @@
+import React, { useState, useEffect } from "react";
+import { Stack, Box } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+import { register } from "../../api/api";
+import { useTheme } from "@mui/material/styles";
+import Logo from "../../components/ui/Logo";
+import { useTranslation } from "react-i18next";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import DatePickerComp from "../../components/forms/DatePickerComp";
+
+import { InputAdornment } from "@mui/material";
+import { IconButton } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+
+const currentYear = new Date().getFullYear(); // Get the current year
+const startYear = 1920; // Starting year
+
+// Calculate the length of the array
+const length = currentYear - startYear + 1;
+
+// Generate the array
+const years = Array.from({ length }, (_, i) => startYear + i);
+
+const genders = ["Male", "Female", "NS"];
+
+function Registration() {
+  const { t } = useTranslation();
+  const theme = useTheme();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [gender, setGender] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [dateOfBirth, setBirthDate] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+
+  const navigator = useNavigate();
+
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  };
+  const handleMiddleNameChange = (event) => {
+    setMiddleName(event.target.value);
+  };
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  const handlePhoneChange = (event) => {
+    setPhone(event.target.value);
+  };
+  const handleGenderChange = (event) => {
+    setGender(event.target.value);
+  };
+
+  const handleDateOfBirthChange = (date) => {
+    setBirthDate(date);
+  };
+
+  const data = {
+    email: email,
+    phone: phone,
+    password: password,
+    firstName: firstName,
+    middleName: middleName,
+    lastName: lastName,
+    gender: gender,
+    dateOfBirth: dateOfBirth,
+    city: city,
+    country: country,
+  };
+  useEffect(() => {
+    console.log(data);
+  }, [
+    email,
+    phone,
+    password,
+    firstName,
+    middleName,
+    lastName,
+    gender,
+    dateOfBirth,
+    city,
+    country,
+  ]);
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await register(data);
+      navigator(`/login`);
+    } catch (error) {
+      if (error.response.status === 401) {
+        alert(t("invalidCredentials"));
+      } else if (error.response.status === 409) {
+        alert(t("phoneNumberAlreadyExists"));
+      }
+    }
+  };
+
+  return (
+    <Stack
+      sx={{
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row",
+        backgroundImage: `url("./mainBG.jpg")`,
+      }}
+    >
+      <Box
+        sx={{
+          width: {
+            xs: "100%",
+            sm: "700px",
+          },
+          height: "70%",
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
+          border: "1px solid black",
+          borderRadius: "10px",
+          backgroundColor: theme.palette.primary.main,
+          "& > :not(style)": { m: 1, width: "100%" },
+        }}
+      >
+        <Logo src={`/user.png`} alt="user" size={80} />
+        <Typography
+          sx={{
+            mb: 5,
+            fontFamily: "serif",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          variant="h5"
+        >
+          {t("createAccount")}
+        </Typography>
+        <Box
+          component="form"
+          sx={{
+            width: "100%",
+            display: { xs: "flex", sm: "block" },
+            justifyContent: "center",
+            alignItems: "space-around",
+            flexDirection: "row",
+            ml: 2,
+            mr: 2,
+
+            "& .MuiTextField-root": {
+              justifyContent: "center",
+              width: "35ch",
+              m: 1,
+            },
+          }}
+          noValidate
+          autoComplete="off"
+          onSubmit={handleOnSubmit}
+        >
+          <Box
+            sx={{
+              width: "100%",
+              display: { xs: "flex", sm: "block" },
+              justifyItems: "center",
+              alignItems: "center",
+              flexDirection: "row",
+              mt: 5,
+            }}
+          >
+            <TextField
+              required
+              id="outlined-required"
+              label={t("firstName")}
+              defaultValue=""
+              onChange={handleFirstNameChange}
+              variant="outlined"
+            />
+            <TextField
+              id="outlined-input"
+              label={t("middleName")}
+              defaultValue=""
+              onChange={handleMiddleNameChange}
+              variant="outlined"
+            />
+          </Box>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex ",
+              justifyItems: "center",
+              alignItems: "center",
+              flexDirection: "row",
+            }}
+          >
+            <TextField
+              required
+              id="outlined-required"
+              label={t("lastName")}
+              defaultValue=""
+              onChange={handleLastNameChange}
+              variant="outlined"
+            />
+            <Box sx={{ width: "100%" }}>
+              <FormControl sx={{ width: "50%" }}>
+                <InputLabel id="demo-simple-select-label">
+                  {t("gender")}
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  // value={gender}
+                  label={t("gender")}
+                  onChange={handleGenderChange}
+                >
+                  {genders.map((gender, index) => (
+                    <MenuItem key={index}>{t(gender)}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+
+              justifyContent: "flex-start",
+              alignItems: "center",
+              flexDirection: "row",
+            }}
+          >
+            <TextField
+              id="outlined-required"
+              label={t("phoneNumber")}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+            />
+            <DatePickerComp onChange={handleDateOfBirthChange} />
+          </Box>
+
+          <Box
+            sx={{
+              width: "100%",
+              display: { xs: "flex", sm: "block" },
+              justifyItems: { xs: "flex-start" },
+              alignItems: { xs: "center" },
+              flexDirection: { xs: "column" },
+            }}
+          >
+            <TextField
+              id="outlined-required"
+              label={t("email")}
+              onChange={handleEmailChange}
+              required
+            />
+            <TextField
+              sx={{
+                "&:hover": { backgroundColor: theme.palette.primary.opacity },
+              }}
+              id="standard-basic"
+              label={t("password")}
+              type={showPassword ? "text" : "password"}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={() => setShowPassword(!showPassword)}
+                      onMouseDown={(e) => e.preventDefault()}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
+          <Box>
+            <TextField id="outlined-input" label={t("city")} />
+            <TextField
+              required
+              id="outlined-required"
+              label={t("country")}
+              defaultValue="Vietnam"
+            />
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "row",
+          }}
+        >
+          <Button
+            sx={{
+              width: "20%",
+              height: "40px",
+              backgroundColor: theme.palette.primary.dark,
+              marginTop: 2,
+              "&:hover": { backgroundColor: "#A3E4EA" },
+            }}
+            variant="contained"
+            onClick={handleOnSubmit}
+          >
+            {t("register")}
+          </Button>
+        </Box>
+      </Box>
+    </Stack>
+  );
+}
+
+export default Registration;

@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { Box, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import DatePickerValue from "./DatePicker.Value";
+
 import DropoutMenu from "./DropoutMenu";
 import Typography from "@mui/material/Typography";
 import CurrentHealth from "./CurrentHealth";
@@ -10,6 +10,8 @@ import AdditionalMedical from "./AdditionalMedical";
 import MedicalHistory from "./MedicalHistory";
 import PhoneInput from "./PhoneInput";
 import { useTranslation } from "react-i18next";
+
+const genders = ["Male", "Female", "Not Specific"];
 
 export default function FormPropsTextFields() {
   const { t } = useTranslation();
@@ -133,8 +135,7 @@ export default function FormPropsTextFields() {
           justifyItems: "flex-start",
         }}
       >
-        <DatePickerValue callback={handleDateOfBirth} />
-        <DropoutMenu callback={handleGenderChange} />
+        <DropoutMenu menu={genders} callback={handleGenderChange} />
       </Box>
       <Box>
         <TextField

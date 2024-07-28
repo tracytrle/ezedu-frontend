@@ -28,7 +28,11 @@
   "middleName": "Tên đệm",
   "lastName": "Họ",
   "phoneNumber": "Số điện thoại",
-  "dateOfBirth": "Ngày sinh",
+  "YOB": "Năm sinh",
+  "Male": "Nam",
+  "Female": "Nữ",
+  "NS": "Không xác định",
+
   "gender": "Giới tính",
   "country": "Quốc gia",
   "address": "Địa chỉ",

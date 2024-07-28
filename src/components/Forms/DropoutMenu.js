@@ -5,9 +5,7 @@ import Select from "@mui/material/Select";
 import { InputLabel } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
-const genders = ["Male", "Female", "Not Specific"];
-
-export default function DropoutMenu() {
+export default function DropoutMenu(menu) {
   const [gender, setGender] = React.useState("Male");
   const { t } = useTranslation();
 
@@ -26,8 +24,8 @@ export default function DropoutMenu() {
         displayEmpty
         inputProps={{ "aria-label": "Without label" }}
       >
-        {genders.map((gender, index) => (
-          <MenuItem value={index}>{gender}</MenuItem>
+        {menu.map((item, index) => (
+          <MenuItem value={item}>{item}</MenuItem>
         ))}
       </Select>
     </FormControl>
