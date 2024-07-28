@@ -16,19 +16,20 @@ function RegisterPage() {
   const theme = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigator = useNavigate();
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-      await register(email, password);
+      await register(email, phone, password);
       navigator(`/login`);
     } catch (error) {
       if (error.response.status === 401) {
         alert(t("invalidCredentials"));
       } else if (error.response.status === 409) {
-        alert(t("emailAlreadyExists"));
+        alert(t("phoneNumberAlreadyExists"));
       }
     }
   };
@@ -49,10 +50,10 @@ function RegisterPage() {
         sx={{
           width: {
             xs: "100%",
-            sm: "500px",
+            sm: "700px",
           },
-          maxWidth: "90%",
-          height: "500px",
+          maxWidth: "100%",
+          height: "600px",
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
@@ -83,6 +84,16 @@ function RegisterPage() {
             label={t("email")}
             variant="standard"
             onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <TextField
+            sx={{
+              "&:hover": { backgroundColor: theme.palette.primary.opacity },
+            }}
+            id="standard-basic"
+            label={t("phoneNumber")}
+            variant="standard"
+            onChange={(e) => setPhone(e.target.value)}
             required
           />
           <TextField

@@ -19,12 +19,13 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const { setAuthInfo } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const [phone, setPhone] = useState("");
   const navigator = useNavigate();
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await login(email, password);
+      const res = await login(email, phone, password);
       setAuthInfo(res.data.access_token);
       navigator(`/homepage`);
     } catch (error) {
@@ -50,10 +51,10 @@ function LoginPage() {
         sx={{
           width: {
             xs: "100%",
-            sm: "500px",
+            sm: "700px",
           },
           maxWidth: "90%",
-          height: "500px",
+          height: "600px",
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
@@ -84,6 +85,16 @@ function LoginPage() {
             label={t("email")}
             variant="standard"
             onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <TextField
+            sx={{
+              "&:hover": { backgroundColor: theme.palette.primary.opacity },
+            }}
+            id="standard-basic"
+            label={t("phoneNumber")}
+            variant="standard"
+            onChange={(e) => setPhone(e.target.value)}
             required
           />
 
