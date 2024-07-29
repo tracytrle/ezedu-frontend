@@ -6,7 +6,7 @@ import { API_URL } from "./config";
 // };
 
 export const register = (data) => {
-  return axios.post(`${API_URL}/auth/register`, { data });
+  return axios.post(`${API_URL}/auth/register`, data);
 };
 
 export const login = (email, phone, password) => {
