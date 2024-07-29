@@ -1,84 +1,16 @@
 import * as React from "react";
-import { useState } from "react";
-import { Box, Button } from "@mui/material";
-import TextField from "@mui/material/TextField";
 
-import DropoutMenu from "./DropoutMenu";
+import { Box, Button } from "@mui/material";
+
 import Typography from "@mui/material/Typography";
 import CurrentHealth from "./CurrentHealth";
 import AdditionalMedical from "./AdditionalMedical";
 import MedicalHistory from "./MedicalHistory";
-import PhoneInput from "./PhoneInput";
-import { useTranslation } from "react-i18next";
 
-const genders = ["Male", "Female", "Not Specific"];
+import { useTranslation } from "react-i18next";
 
 export default function FormPropsTextFields() {
   const { t } = useTranslation();
-  const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [gender, setGender] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-
-  const [birthDate, setBirthDate] = useState(Date.now());
-
-  const handleFirstNameChange = (event) => {
-    setFirstName(event.target.value);
-    // console.log(firstName);
-  };
-  const handleMiddleNameChange = (event) => {
-    setMiddleName(event.target.value);
-  };
-  const handleLastNameChange = (event) => {
-    setLastName(event.target.value);
-  };
-  const handleGenderChange = (event) => {
-    setGender(event.target.value);
-  };
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-  const handlePhoneChange = (event) => {
-    setPhone(event.target.value);
-  };
-  const handleAddressChange = (event) => {
-    setAddress(event.target.value);
-  };
-  const handleCityChange = (event) => {
-    setCity(event.target.value);
-  };
-  const handleCountryChange = (event) => {
-    setCountry(event.target.value);
-  };
-  const handleDateOfBirth = (date) => {
-    setBirthDate(date);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = {
-      firstName,
-      middleName,
-      lastName,
-      gender,
-      email,
-      phone,
-      address,
-      city,
-      country,
-      birthDate,
-    };
-  };
-  React.useEffect(() => {
-    console.log("firstName", firstName);
-    console.log("middleName", middleName);
-    console.log("lastName", lastName);
-  }, [firstName, middleName, lastName]);
 
   return (
     <Box
@@ -88,83 +20,8 @@ export default function FormPropsTextFields() {
       }}
       noValidate
       autoComplete="off"
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
     >
-      <Box sx={{ ml: 1, mb: 1 }}>
-        <Typography variant="h5" fontFamily={"-moz-initial"}>
-          {t("userInformation")} ({t("required")})
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          width: "100%",
-          display: { xs: "flex", sm: "block" },
-          justifyItems: { xs: "flex-start" },
-          alignItems: { xs: "center" },
-          flexDirection: { xs: "column" },
-        }}
-      >
-        <TextField
-          required
-          id="outlined-required"
-          label={t("firstName")}
-          defaultValue=""
-          onChange={handleFirstNameChange}
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-input"
-          label={t("middleName")}
-          defaultValue=""
-          onChange={handleMiddleNameChange}
-          variant="outlined"
-        />
-        <TextField
-          required
-          id="outlined-required"
-          label={t("lastName")}
-          defaultValue=""
-          onChange={handleLastNameChange}
-          variant="outlined"
-        />
-      </Box>
-      <Box
-        sx={{
-          width: "100%",
-          display: "block",
-          justifyItems: "flex-start",
-        }}
-      >
-        <DropoutMenu menu={genders} callback={handleGenderChange} />
-      </Box>
-      <Box>
-        <TextField
-          required
-          id="outlined-required"
-          label={t("email")}
-          onChange={handleEmailChange}
-        />
-        <PhoneInput callback={handlePhoneChange} sx={{ maxWidth: "80px" }} />
-      </Box>
-
-      <Box
-        sx={{
-          width: "100%",
-          display: { xs: "flex", sm: "block" },
-          justifyItems: { xs: "flex-start" },
-          alignItems: { xs: "center" },
-          flexDirection: { xs: "column" },
-        }}
-      >
-        <TextField required id="outlined-required" label={t("address")} />
-        <TextField id="outlined-input" label={t("city")} />
-        <TextField
-          required
-          id="outlined-required"
-          label={t("country")}
-          defaultValue="Vietnam"
-        />
-      </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
           {t("currentHealth")} ({t("optional")})
@@ -230,9 +87,7 @@ export default function FormPropsTextFields() {
           padding: "16px",
         }}
       >
-        <Button onSubmit={handleSubmit} variant="contained">
-          {t("submit")}
-        </Button>
+        <Button variant="contained">{t("submit")}</Button>
       </Box>
     </Box>
   );
