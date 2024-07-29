@@ -6,13 +6,11 @@ import LoginPage from "./pages/Login/Loginpage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import store from "./context/messages/store";
-
 import { Provider } from "react-redux";
 import NotFoundPage from "./pages/Register/NotFoundPage";
 import RegisterPage from "./pages/Register/RegisterPage";
 import { AuthProvider } from "./context/authContext/AuthContext";
 import InfoForm from "./pages/Register/InfoForm";
-
 // import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
@@ -30,7 +28,6 @@ function App() {
                 <Route path="/register" element={<RegisterPage />}></Route>
                 <Route path="/homepage" element={<Homepage />}></Route>
                 <Route path="/information" element={<InfoForm />} />
-
                 {/* <ProtectedRoute
                   path="/protected"
                   component={() => <h1>Protected Route</h1>}

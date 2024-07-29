@@ -9,7 +9,7 @@ import { useTheme } from "@mui/material/styles";
 import Logo from "../../components/ui/Logo";
 import { useTranslation } from "react-i18next";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import DatePickerComp from "../../components/forms/DatePickerComp";
+import CustomizedDatePicker from "../../components/forms/CustomizedDatePicker";
 import dayjs from "dayjs";
 import { InputAdornment } from "@mui/material";
 import { IconButton } from "@mui/material";
@@ -82,8 +82,6 @@ function RegisterPage() {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-      // const jsonData = JSON.stringify(data); // Convert the data object to a JSON string
-      // await register(jsonData);
       await register(data);
       navigator(`/login`);
     } catch (error) {
@@ -237,7 +235,7 @@ function RegisterPage() {
               onChange={handlePhoneChange}
               required
             />
-            <DatePickerComp callback={handleDateOfBirthChange} />
+            <CustomizedDatePicker callbackHandler={handleDateOfBirthChange} />
           </Box>
 
           <Box

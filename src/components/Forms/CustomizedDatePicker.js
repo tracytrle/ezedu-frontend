@@ -7,17 +7,16 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
-import { use } from "i18next";
 
-export default function DatePickerComp({ callback }) {
+export default function CustomizedDatePicker({ callbackHandler }) {
   const { t } = useTranslation();
   const [value, setValue] = React.useState(dayjs("2022-04-17"));
 
   useEffect(() => {
-    if (callback) {
-      callback(value);
+    if (callbackHandler) {
+      callbackHandler(value);
     }
-  }, [value, callback]);
+  }, [value, callbackHandler]);
 
   return (
     <Box
