@@ -98,7 +98,7 @@ function RegisterPage() {
       sx={{
         width: "100%",
         height: "100vh",
-        display: "flex",
+        display: "center",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
@@ -111,7 +111,11 @@ function RegisterPage() {
             xs: "100%",
             sm: "700px",
           },
-          height: "70%",
+          height: {
+            xs: "100%",
+            sm: "70%",
+          },
+          overflowY: "auto",
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
