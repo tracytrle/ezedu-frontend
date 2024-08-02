@@ -41,7 +41,7 @@ function InfoForm() {
             flexDirection: "column",
           }}
         >
-          <Typography variant="h4">{t("registrationForm")}</Typography>
+          <Typography variant="h4">{t("healthForm")}</Typography>
         </Box>
         <Box
           sx={{

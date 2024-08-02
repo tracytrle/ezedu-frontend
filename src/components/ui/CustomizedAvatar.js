@@ -10,9 +10,6 @@ export default function CustomizedAvatar() {
         width: 180,
         height: 180,
         mt: 5,
-        position: "absolute",
-        top: "10px",
-        right: "200px",
       }}
     />
   );

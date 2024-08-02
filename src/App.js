@@ -11,6 +11,7 @@ import NotFoundPage from "./pages/Register/NotFoundPage";
 import RegisterPage from "./pages/Register/RegisterPage";
 import { AuthProvider } from "./context/authContext/AuthContext";
 import InfoForm from "./pages/Register/InfoForm";
+import UserProfile from "./pages/Profile/UserProfile";
 // import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
@@ -27,7 +28,9 @@ function App() {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />}></Route>
                 <Route path="/homepage" element={<Homepage />}></Route>
+                <Route path="/profile" element={<UserProfile />}></Route>
                 <Route path="/information" element={<InfoForm />} />
+
                 {/* <ProtectedRoute
                   path="/protected"
                   component={() => <h1>Protected Route</h1>}

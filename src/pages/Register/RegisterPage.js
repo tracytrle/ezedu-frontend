@@ -87,6 +87,8 @@ function RegisterPage() {
     } catch (error) {
       if (error.response.status === 401) {
         alert(t("invalidCredentials"));
+      } else if (error.response.status === 408) {
+        alert(t("emailAlreadyExists"));
       } else if (error.response.status === 409) {
         alert(t("phoneNumberAlreadyExists"));
       }
