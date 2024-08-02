@@ -1,18 +1,24 @@
 import * as React from "react";
-
 import { Box, Button } from "@mui/material";
-
 import Typography from "@mui/material/Typography";
 import CurrentHealth from "./CurrentHealth";
 import AdditionalMedical from "./AdditionalMedical";
 import MedicalHistory from "./MedicalHistory";
-
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { useContext } from "react";
 
 export default function FormPropsTextFields() {
   const theme = useTheme();
   const { t } = useTranslation();
+  const { authState } = useContext(AuthContext);
+  if (!authState.token) {
+    window.location.href = "/";
+    return null;
+  }
+  const userID = authState.user.id;
+  const userPhone = authState.user.phone;
 
   return (
     <Box
