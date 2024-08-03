@@ -6,21 +6,9 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import { useTranslation } from "react-i18next";
 
-const user = {
-  firstName: "John",
-  middleName: "A.",
-  lastName: "Doe",
-  gender: "Male",
-  dateOfBirth: "1990-05-15",
-  phone: "1234567890",
-  email: "john.doe@example.com",
-  city: "New York",
-  country: "USA",
-};
-
-export default function SelectedListItem() {
+export default function SelectedListItem({ list }) {
   const { t } = useTranslation();
-  const entries = Object.entries(user);
+  const entries = Object.entries(list);
 
   return (
     <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
