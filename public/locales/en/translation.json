@@ -60,5 +60,6 @@
   "bloodPressureQuestion": "Do you have a high/ low blood pressure?",
   "allegiesQuestion": "Have you had any allegies?",
   "medicineQuestion": "Have you taken any medicine?",
-  "specify": "If yes, please specify:"
+  "specify": "If yes, please specify:",
+  "updateProfile": "Update Profile"
 }

@@ -6,8 +6,16 @@ import CurrentHealthRecord from "../../components/profile/CurrentHealthRecord";
 import HealthHistoryRecord from "../../components/profile/HealthHistoryRecord";
 import AdditionalHealthRecord from "../../components/profile/AdditionalHealthRecord";
 import Button from "@mui/material/Button";
+import { useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 
 function UserProfile() {
+  const { t } = useTranslation();
+  const theme = useTheme();
+  const handleUpdateProfile = () => {
+    window.location.href = "/information";
+  };
+
   return (
     <Stack
       sx={{
@@ -156,8 +164,18 @@ function UserProfile() {
                   padding: "50px",
                 }}
               >
-                <Button sx={{ width: "20%", heigh: "5%", bgcolor: "grey" }}>
-                  Update
+                <Button
+                  sx={{
+                    width: "20%",
+                    heigh: "5%",
+                    color: "black",
+                    bgcolor: theme.palette.primary.dark,
+
+                    "&:hover": { backgroundColor: "#A3E4EA" },
+                  }}
+                  onClick={handleUpdateProfile}
+                >
+                  {t("updateProfile")}
                 </Button>
               </Box>
             </Box>
