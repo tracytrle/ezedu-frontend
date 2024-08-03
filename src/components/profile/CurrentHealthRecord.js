@@ -5,6 +5,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import { Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const healthCheckboxes = [
   { label: "headaches" },
@@ -31,6 +32,7 @@ healthCheckboxes.forEach((checkbox) => {
 });
 
 export default function CurrentHealthRecord() {
+  const { t } = useTranslation();
   return (
     <Box sx={{ width: "100%", bgcolor: "background.paper", m: 2 }}>
       <Typography variant="h6">Current Health Record</Typography>
@@ -38,8 +40,8 @@ export default function CurrentHealthRecord() {
         {healthCheckboxes.map((checkbox, index) => (
           <React.Fragment key={checkbox.label}>
             <ListItem>
-              <ListItemText primary={checkbox.label} />
-              <ListItemText align="right" primary={checkbox.status} />
+              <ListItemText primary={t(checkbox.label)} />
+              <ListItemText align="right" primary={t(checkbox.status)} />
             </ListItem>
             {index < healthCheckboxes.length - 1 && <Divider />}
           </React.Fragment>
