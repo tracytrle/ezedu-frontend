@@ -87,6 +87,8 @@ function RegisterPage() {
     } catch (error) {
       if (error.response.status === 401) {
         alert(t("invalidCredentials"));
+      } else if (error.response.status === 408) {
+        alert(t("emailAlreadyExists"));
       } else if (error.response.status === 409) {
         alert(t("phoneNumberAlreadyExists"));
       }
@@ -98,7 +100,7 @@ function RegisterPage() {
       sx={{
         width: "100%",
         height: "100vh",
-        display: "flex",
+        display: "center",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
@@ -111,7 +113,11 @@ function RegisterPage() {
             xs: "100%",
             sm: "700px",
           },
-          height: "70%",
+          height: {
+            xs: "100%",
+            sm: "70%",
+          },
+          overflowY: "auto",
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",

@@ -60,5 +60,7 @@
   "bloodPressureQuestion": "Bạn có huyết áp cao/ thấp không?",
   "allegiesQuestion": "Bạn đã từng bị dị ứng chưa?",
   "medicineQuestion": "Bạn đã dùng bất kỳ loại thuốc nào chưa?",
-  "specify": "Nếu có, vui lòng ghi rõ:"
+  "specify": "Nếu có, vui lòng ghi rõ:",
+  "submitForm": "Gửi biểu mẫu",
+  "updateProfile": "Cập nhật hồ sơ"
 }

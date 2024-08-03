@@ -1,16 +1,24 @@
 import * as React from "react";
-
 import { Box, Button } from "@mui/material";
-
 import Typography from "@mui/material/Typography";
 import CurrentHealth from "./CurrentHealth";
 import AdditionalMedical from "./AdditionalMedical";
 import MedicalHistory from "./MedicalHistory";
-
 import { useTranslation } from "react-i18next";
+import { useTheme } from "@mui/material/styles";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { useContext } from "react";
 
 export default function FormPropsTextFields() {
+  const theme = useTheme();
   const { t } = useTranslation();
+  const { authState } = useContext(AuthContext);
+  if (!authState.token) {
+    window.location.href = "/";
+    return null;
+  }
+  // const userID = authState.user.id;
+  // const userPhone = authState.user.phone;
 
   return (
     <Box
@@ -24,7 +32,7 @@ export default function FormPropsTextFields() {
     >
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
-          {t("currentHealth")} ({t("optional")})
+          {t("currentHealth")}
         </Typography>
       </Box>
       <Box
@@ -42,7 +50,7 @@ export default function FormPropsTextFields() {
       </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
-          {t("medicalHistory")} ({t("optional")})
+          {t("medicalHistory")}
         </Typography>
       </Box>
       <Box
@@ -60,7 +68,7 @@ export default function FormPropsTextFields() {
       </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
-          {t("additionalHealthRecord")} ({t("optional")})
+          {t("additionalHealthRecord")}
         </Typography>
       </Box>
       <Box
@@ -87,7 +95,15 @@ export default function FormPropsTextFields() {
           padding: "16px",
         }}
       >
-        <Button variant="contained">{t("submit")}</Button>
+        <Button
+          sx={{
+            backgroundColor: theme.palette.primary.dark,
+            "&:hover": { backgroundColor: "#A3E4EA" },
+          }}
+          variant="contained"
+        >
+          {t("submit")}
+        </Button>
       </Box>
     </Box>
   );

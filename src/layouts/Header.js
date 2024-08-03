@@ -33,6 +33,10 @@ export default function MenuAppBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleProfile = () => {
+    window.location.href = "/profile";
+    handleClose();
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -77,7 +81,7 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>{t("profile")}</MenuItem>
+                <MenuItem onClick={handleProfile}>{t("profile")}</MenuItem>
                 <MenuItem onClick={handleClose}>{t("myAccount")}</MenuItem>
                 <MenuItem onClick={handleLogOut}>{t("logout")}</MenuItem>
               </Menu>

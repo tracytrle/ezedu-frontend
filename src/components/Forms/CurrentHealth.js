@@ -23,12 +23,13 @@ const CurrentHealth = () => {
             control={
               <Checkbox
                 sx={{
-                  "&.Mui-checked": {
+                  "&.MuiCheckbox-root.Mui-checked": {
                     color: "blue",
                   },
                 }}
                 checked={checkedItems[item.label] || false}
                 onChange={handleChange}
+                name={item.label}
                 label={item.label}
               />
             }
