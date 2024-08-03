@@ -4,21 +4,11 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
+import { useTranslation } from "react-i18next";
 
-const user = {
-  "First Name": "John",
-  "Middle Name": "A.",
-  "Last Name": "Doe",
-  Gender: "Male",
-  "Date of Birth": "1990-05-15",
-  Phone: "1234567890",
-  Email: "john.doe@example.com",
-  City: "New York",
-  Country: "USA",
-};
-
-export default function SelectedListItem() {
-  const entries = Object.entries(user);
+export default function SelectedListItem({ list }) {
+  const { t } = useTranslation();
+  const entries = Object.entries(list);
 
   return (
     <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
@@ -26,8 +16,8 @@ export default function SelectedListItem() {
         {entries.map(([key, value], index) => (
           <React.Fragment key={key}>
             <ListItem>
-              <ListItemText primary={key} />
-              <ListItemText primary={value} />
+              <ListItemText primary={t(key)} />
+              <ListItemText primary={t(value)} />
             </ListItem>
             {index < entries.length - 1 && <Divider />}
           </React.Fragment>

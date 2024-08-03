@@ -62,5 +62,9 @@
   "medicineQuestion": "Bạn đã dùng bất kỳ loại thuốc nào chưa?",
   "specify": "Nếu có, vui lòng ghi rõ:",
   "submitForm": "Gửi biểu mẫu",
-  "updateProfile": "Cập nhật hồ sơ"
+  "updateProfile": "Cập nhật hồ sơ",
+  "No": "Không",
+  "Yes": "Có",
+  "allergies": "Dị ứng",
+  "medications": "Thuốc"
 }

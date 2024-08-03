@@ -61,5 +61,9 @@
   "allegiesQuestion": "Have you had any allegies?",
   "medicineQuestion": "Have you taken any medicine?",
   "specify": "If yes, please specify:",
-  "updateProfile": "Update Profile"
+  "updateProfile": "Update Profile",
+  "No": "No",
+  "Yes": "Yes",
+  "allergies": "Allergies:",
+  "medications": "Medications:"
 }

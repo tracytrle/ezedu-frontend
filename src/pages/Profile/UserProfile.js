@@ -8,6 +8,7 @@ import AdditionalHealthRecord from "../../components/profile/AdditionalHealthRec
 import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
+import UserInfo from "../../components/profile/UserInfo";
 
 function UserProfile() {
   const { t } = useTranslation();
@@ -106,7 +107,8 @@ function UserProfile() {
                 position: "relative",
               }}
             >
-              <SelectedListItem />
+              {/* <SelectedListItem /> */}
+              <UserInfo />
             </Box>
           </Grid>
 
