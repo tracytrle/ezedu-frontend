@@ -1,7 +1,6 @@
 import React from "react";
 import { Stack, Box, Grid } from "@mui/material";
 import CustomizedAvatar from "../../components/ui/CustomizedAvatar";
-import SelectedListItem from "../../components/ui/SelectedListItem";
 import CurrentHealthRecord from "../../components/profile/CurrentHealthRecord";
 import HealthHistoryRecord from "../../components/profile/HealthHistoryRecord";
 import AdditionalHealthRecord from "../../components/profile/AdditionalHealthRecord";
@@ -107,7 +106,6 @@ function UserProfile() {
                 position: "relative",
               }}
             >
-              {/* <SelectedListItem /> */}
               <UserInfo />
             </Box>
           </Grid>
