@@ -17,8 +17,6 @@ export default function FormPropsTextFields() {
     window.location.href = "/";
     return null;
   }
-  // const userID = authState.user.id;
-  // const userPhone = authState.user.phone;
 
   return (
     <Box
