@@ -58,8 +58,8 @@ export default function FormPropsTextFields() {
           mt: 2,
           mr: 10,
           border: "0.5px solid grey",
-          borderRadius: "4px", // Optional: Add rounded corners
-          padding: "16px", // Optional: Add some padding inside the box
+          borderRadius: "4px",
+          padding: "16px",
         }}
       >
         <MedicalHistory />
@@ -76,8 +76,8 @@ export default function FormPropsTextFields() {
           mt: 2,
           mr: 10,
           border: "0.5px solid grey",
-          borderRadius: "4px", // Optional: Add rounded corners
-          padding: "16px", // Optional: Add some padding inside the box
+          borderRadius: "4px",
+          padding: "16px",
         }}
       >
         <AdditionalMedical />

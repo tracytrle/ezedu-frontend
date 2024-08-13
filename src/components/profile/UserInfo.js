@@ -23,17 +23,21 @@ export default function UserInfo() {
             "Content-Type": "application/json",
           },
         });
-        const userInfor = {
-          firstName: response.data.firstName,
-          middleName: response.data.middleName,
-          lastName: response.data.lastName,
-          gender: response.data.gender,
-          dateOfBirth: new Date(response.data.dateOfBirth).toLocaleDateString(),
-          phone: response.data.phone,
-          email: response.data.email,
-          city: response.data.city,
-          country: response.data.country,
-        };
+
+        const userInfor = [
+          { label: "firstName", value: response.data.firstName },
+          { label: "middleName", value: response.data.middleName },
+          { label: "lastName", value: response.data.lastName },
+          { label: "gender", value: response.data.gender },
+          {
+            label: "dateOfBirth",
+            value: new Date(response.data.dateOfBirth).toLocaleDateString(),
+          },
+          { label: "phone", value: response.data.phone },
+          { label: "email", value: response.data.email },
+          { label: "city", value: response.data.city },
+          { label: "country", value: response.data.country },
+        ];
 
         setUserData(userInfor);
       } catch (error) {
@@ -52,7 +56,7 @@ export default function UserInfo() {
 
   return (
     <>
-      <SelectedListItem list={userData} />;
+      <SelectedListItem list={userData} />
       <ToastContainer />
     </>
   );

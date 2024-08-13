@@ -3,22 +3,22 @@ import Box from "@mui/material/Box";
 import CurrentHealthRecord from "./CurrentHealthRecord";
 
 const healthCheckboxes = [
-  { label: "headaches", status: "No" },
-  { label: "cancer", status: "No" },
-  { label: "diabetes", status: "No" },
-  { label: "bloodClots", status: "No" },
-  { label: "arthritisTendonitis", status: "No" },
-  { label: "abnormalSkinCondition", status: "No" },
-  { label: "highOrLowBloobPressure", status: "No" },
-  { label: "fibromyalgia", status: "No" },
-  { label: "neckBackInjury", status: "No" },
-  { label: "numbness", status: "No" },
-  { label: "varicoseVeins", status: "No" },
-  { label: "recentInjury", status: "No" },
-  { label: "nursingPregnant", status: "No" },
-  { label: "depression", status: "No" },
-  { label: "fatigue", status: "No" },
-  { label: "insomnia", status: "No" },
+  { label: "headaches", value: "No" },
+  { label: "cancer", value: "No" },
+  { label: "diabetes", value: "No" },
+  { label: "bloodClots", value: "No" },
+  { label: "arthritisTendonitis", value: "No" },
+  { label: "abnormalSkinCondition", value: "No" },
+  { label: "highOrLowBloobPressure", value: "No" },
+  { label: "fibromyalgia", value: "No" },
+  { label: "neckBackInjury", value: "No" },
+  { label: "numbness", value: "No" },
+  { label: "varicoseVeins", value: "No" },
+  { label: "recentInjury", value: "No" },
+  { label: "nursingPregnant", value: "No" },
+  { label: "depression", value: "No" },
+  { label: "fatigue", value: "No" },
+  { label: "insomnia", value: "No" },
 ];
 
 const sublist1 = healthCheckboxes.slice(0, 8);
@@ -46,7 +46,7 @@ function CurrentHealthRecords() {
             justifyContent: "space-between",
           }}
         >
-          <CurrentHealthRecord list={sublist1} />
+          <CurrentHealthRecord list={sublist1} title={"currentHealth"} />
         </Box>
         <Box
           sx={{
@@ -57,7 +57,7 @@ function CurrentHealthRecords() {
             justifyContent: "space-between",
           }}
         >
-          <CurrentHealthRecord list={sublist2} />
+          <CurrentHealthRecord list={sublist2} title={"currentHealth"} />
         </Box>
       </Box>
     </>
