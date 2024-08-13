@@ -16,3 +16,7 @@ export const getUser = (userId) => {
 export const setUserHealthHistory = (data) => {
   return axios.post(`${API_URL}/healthRecord/register`, data);
 };
+
+export const getUserHealthRecord = (userId) => {
+  return axios.get(`${API_URL}/healthRecord/getRecord/${userId}`);
+};

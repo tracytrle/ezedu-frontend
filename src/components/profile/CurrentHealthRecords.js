@@ -1,30 +1,63 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import CurrentHealthRecord from "./CurrentHealthRecord";
-
-const healthCheckboxes = [
-  { label: "headaches", value: "No" },
-  { label: "cancer", value: "No" },
-  { label: "diabetes", value: "No" },
-  { label: "bloodClots", value: "No" },
-  { label: "arthritisTendonitis", value: "No" },
-  { label: "abnormalSkinCondition", value: "No" },
-  { label: "highOrLowBloobPressure", value: "No" },
-  { label: "fibromyalgia", value: "No" },
-  { label: "neckBackInjury", value: "No" },
-  { label: "numbness", value: "No" },
-  { label: "varicoseVeins", value: "No" },
-  { label: "recentInjury", value: "No" },
-  { label: "nursingPregnant", value: "No" },
-  { label: "depression", value: "No" },
-  { label: "fatigue", value: "No" },
-  { label: "insomnia", value: "No" },
-];
-
-const sublist1 = healthCheckboxes.slice(0, 8);
-const sublist2 = healthCheckboxes.slice(8, 16);
+import { getUserHealthRecord } from "../../api/api";
 
 function CurrentHealthRecords() {
+  const userId = localStorage.getItem("userId");
+  const [healthRecord, setHealthRecord] = useState([]);
+  const [record1, setRecord1] = useState([]);
+  const [record2, setRecord2] = useState([]);
+
+  useEffect(() => {
+    getUserHealthRecord(userId).then((response) => {
+      // how to convert repsonse.data to a list of objects?
+      const data = response.data;
+      console.log("data: " + data);
+      const keyValuePairsMap = [
+        { label: "headaches", value: data.isHeadache ? "Yes" : "No" },
+        { label: "cancer", value: data.isCancer ? "Yes" : "No" },
+        { label: "diabetes", value: data.isDiabetes ? "Yes" : "No" },
+        { label: "bloodClots", value: data.isBloodClots ? "Yes" : "No" },
+        {
+          label: "arthritisTendonitis",
+          value: data.isArthritis ? "Yes" : "No",
+        },
+        {
+          label: "abnormalSkinCondition",
+          value: data.isAbnormalSkinConditions ? "Yes" : "No",
+        },
+        {
+          label: "highOrLowBloodPressure",
+          value: data.isHighOrLowBloodPressure ? "Yes" : "No",
+        },
+        { label: "fibromyalgia", value: data.isFibromyalgia ? "Yes" : "No" },
+        {
+          label: "neckBackInjury",
+          value: data.isNeckOrBackPain ? "Yes" : "No",
+        },
+        { label: "numbness", value: data.isNumbness ? "Yes" : "No" },
+        { label: "varicoseVeins", value: data.isVaricoseVeins ? "Yes" : "No" },
+        { label: "recentInjury", value: data.isRecentInjury ? "Yes" : "No" },
+        {
+          label: "nursingPregnant",
+          value: data.isNursingOrPregnant ? "Yes" : "No",
+        },
+        { label: "depression", value: data.isDepression ? "Yes" : "No" },
+        { label: "fatigue", value: data.isFatigue ? "Yes" : "No" },
+        { label: "insomnia", value: data.isInsomnia ? "Yes" : "No" },
+      ];
+      setHealthRecord(keyValuePairsMap);
+    });
+  }, [userId]);
+
+  useEffect(() => {
+    if (healthRecord.length > 0) {
+      setRecord1(healthRecord.slice(0, 8));
+      setRecord2(healthRecord.slice(8, 16));
+    }
+  }, [healthRecord]);
+
   return (
     <>
       <Box
@@ -46,7 +79,7 @@ function CurrentHealthRecords() {
             justifyContent: "space-between",
           }}
         >
-          <CurrentHealthRecord list={sublist1} title={"currentHealth"} />
+          <CurrentHealthRecord list={record1} title={"currentHealth"} />
         </Box>
         <Box
           sx={{
@@ -57,7 +90,7 @@ function CurrentHealthRecords() {
             justifyContent: "space-between",
           }}
         >
-          <CurrentHealthRecord list={sublist2} title={"currentHealth"} />
+          <CurrentHealthRecord list={record2} title={"currentHealth"} />
         </Box>
       </Box>
     </>
