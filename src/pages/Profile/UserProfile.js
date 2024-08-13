@@ -1,13 +1,13 @@
 import React from "react";
 import { Stack, Box, Grid } from "@mui/material";
 import CustomizedAvatar from "../../components/ui/CustomizedAvatar";
-import CurrentHealthRecord from "../../components/profile/CurrentHealthRecord";
 import HealthHistoryRecord from "../../components/profile/HealthHistoryRecord";
 import AdditionalHealthRecord from "../../components/profile/AdditionalHealthRecord";
 import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import UserInfo from "../../components/profile/UserInfo";
+import CurrentHealthRecords from "../../components/profile/CurrentHealthRecords";
 
 function UserProfile() {
   const { t } = useTranslation();
@@ -45,7 +45,7 @@ function UserProfile() {
             <Box
               sx={{
                 width: "100%",
-                height: "350px",
+                height: "450px",
                 bgcolor: "white",
                 display: "flex",
                 justifyContent: "center",
@@ -58,39 +58,7 @@ function UserProfile() {
           </Grid>
 
           <Grid item xs={8}>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                width: "100%",
-                height: "350px",
-                flexDirection: "row",
-                gap: "10px",
-              }}
-            >
-              <Box
-                sx={{
-                  width: "100%",
-                  height: "350px",
-                  bgcolor: "white",
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <CurrentHealthRecord />
-              </Box>
-              <Box
-                sx={{
-                  width: "100%",
-                  height: "350px",
-                  bgcolor: "white",
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <CurrentHealthRecord />
-              </Box>
-            </Box>
+            <CurrentHealthRecords />
           </Grid>
 
           <Grid item xs={4}>
