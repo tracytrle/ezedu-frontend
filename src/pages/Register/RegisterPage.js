@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import { register } from "../../api/api";
+import { register, setUserHealthHistory } from "../../api/api";
 import { useTheme } from "@mui/material/styles";
 import Logo from "../../components/ui/Logo";
 import { useTranslation } from "react-i18next";
@@ -82,8 +82,39 @@ function RegisterPage() {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-      await register(data);
+      const res = await register(data);
+      const userId = res.data.userId;
+      localStorage.setItem("userId", userId);
       navigator(`/login`);
+
+      const newUserHealthHistory = {
+        userId: res.data.userId,
+        isHeadache: false,
+        isCancer: false,
+        isDiabetes: false,
+        isBloodClots: false,
+        isArthritis: false,
+        isAbnormalSkinConditions: false,
+        isHighOrLowBloodPressure: false,
+        isFibromyalgia: false,
+        isNeckOrBackPain: false,
+        isNumbness: false,
+        isVaricoseVeins: false,
+        isRecentInjury: false,
+        isNursingOrPregnant: false,
+        isDepression: false,
+        isFatigue: false,
+        isInsomnia: false,
+        isHavingHeartDisease: false,
+        isHavingSurgery: false,
+        isHavingChronisIllness: false,
+        isHavingHighOrLowBloodPressure: false,
+        isHavingAllergies: false,
+        isTakingMedication: false,
+        allergies: "N/A",
+        medications: "N/A",
+      };
+      await setUserHealthHistory(newUserHealthHistory);
     } catch (error) {
       if (error.response.status === 401) {
         alert(t("invalidCredentials"));
