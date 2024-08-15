@@ -14,37 +14,40 @@ function CurrentHealthRecords() {
       // how to convert repsonse.data to a list of objects?
       const data = response.data;
       const keyValuePairsMap = [
-        { label: "headaches", value: data.isHeadache ? "Yes" : "No" },
-        { label: "cancer", value: data.isCancer ? "Yes" : "No" },
-        { label: "diabetes", value: data.isDiabetes ? "Yes" : "No" },
-        { label: "bloodClots", value: data.isBloodClots ? "Yes" : "No" },
+        { label: "isHeadache", value: data.isHeadache ? "Yes" : "No" },
+        { label: "isCancer", value: data.isCancer ? "Yes" : "No" },
+        { label: "isDiabetes", value: data.isDiabetes ? "Yes" : "No" },
+        { label: "isBloodClots", value: data.isBloodClots ? "Yes" : "No" },
         {
-          label: "arthritisTendonitis",
+          label: "isArthritis",
           value: data.isArthritis ? "Yes" : "No",
         },
         {
-          label: "abnormalSkinCondition",
+          label: "isAbnormalSkinConditions",
           value: data.isAbnormalSkinConditions ? "Yes" : "No",
         },
         {
           label: "highOrLowBloodPressure",
           value: data.isHighOrLowBloodPressure ? "Yes" : "No",
         },
-        { label: "fibromyalgia", value: data.isFibromyalgia ? "Yes" : "No" },
+        { label: "isFibromyalgia", value: data.isFibromyalgia ? "Yes" : "No" },
         {
-          label: "neckBackInjury",
+          label: "isNeckOrBackPain",
           value: data.isNeckOrBackPain ? "Yes" : "No",
         },
-        { label: "numbness", value: data.isNumbness ? "Yes" : "No" },
-        { label: "varicoseVeins", value: data.isVaricoseVeins ? "Yes" : "No" },
-        { label: "recentInjury", value: data.isRecentInjury ? "Yes" : "No" },
+        { label: "isNumbness", value: data.isNumbness ? "Yes" : "No" },
         {
-          label: "nursingPregnant",
+          label: "isVaricoseVeins",
+          value: data.isVaricoseVeins ? "Yes" : "No",
+        },
+        { label: "isRecentInjury", value: data.isRecentInjury ? "Yes" : "No" },
+        {
+          label: "isNursingOrPregnant",
           value: data.isNursingOrPregnant ? "Yes" : "No",
         },
-        { label: "depression", value: data.isDepression ? "Yes" : "No" },
-        { label: "fatigue", value: data.isFatigue ? "Yes" : "No" },
-        { label: "insomnia", value: data.isInsomnia ? "Yes" : "No" },
+        { label: "isDepression", value: data.isDepression ? "Yes" : "No" },
+        { label: "isFatigue", value: data.isFatigue ? "Yes" : "No" },
+        { label: "isInsomnia", value: data.isInsomnia ? "Yes" : "No" },
       ];
       setHealthRecord(keyValuePairsMap);
     });

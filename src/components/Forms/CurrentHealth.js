@@ -22,6 +22,11 @@ const CurrentHealth = ({ setData }) => {
     setData(updatedCheckedItems);
   };
 
+  const handleNotApplied = () => {
+    setCheckedItems(initialCheckedItems);
+    setData(initialCheckedItems);
+  };
+
   return (
     <Grid container spacing={2}>
       {checkboxes.map((item) => (
@@ -44,6 +49,24 @@ const CurrentHealth = ({ setData }) => {
           />
         </Grid>
       ))}
+      <Grid item xs={4} md={3}>
+        <FormControlLabel
+          control={
+            <Checkbox
+              sx={{
+                "&.MuiCheckbox-root.Mui-checked": {
+                  color: "blue",
+                },
+              }}
+              checked={checkedItems["Not Applied"]}
+              onChange={handleNotApplied}
+              name="Not Applied"
+              label="Not Applied"
+            />
+          }
+          label={t("notHavingAnyCondition")}
+        />
+      </Grid>
     </Grid>
   );
 };

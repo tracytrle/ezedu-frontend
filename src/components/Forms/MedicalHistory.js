@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import { useTranslation } from "react-i18next";
 import data from "../../data/data.json";
@@ -7,7 +7,6 @@ import CustomizedCheckbox from "./CustomizedCheckbox";
 export default function MedicalHistory({ setData }) {
   const questions = data.questions;
   const { t } = useTranslation();
-  const [returnedData, setReturnedData] = useState({});
   const initialAnswers = questions.reduce((acc, question) => {
     acc[question] = false;
     return acc;
@@ -30,7 +29,6 @@ export default function MedicalHistory({ setData }) {
     );
 
     setData(newReturnedData);
-    setReturnedData(newReturnedData);
   };
 
   return (

@@ -5,24 +5,24 @@
     "isHavingChronisIllness",
     "isHavingHighOrLowBloodPressure"
   ],
-  "additionalQuestions": ["allegiesQuestion", "medicineQuestion"],
+  "additionalQuestions": ["isHavingAllergies", "isTakingMedication"],
 
   "healthCheckboxes": [
-    { "label": "headaches" },
-    { "label": "cancer" },
-    { "label": "diabetes" },
-    { "label": "bloodClots" },
-    { "label": "arthritisTendonitis" },
-    { "label": "abnormalSkinCondition" },
-    { "label": "highOrLowBloobPressure" },
-    { "label": "fibromyalgia" },
-    { "label": "neckBackInjury" },
-    { "label": "numbness" },
-    { "label": "varicoseVeins" },
-    { "label": "recentInjury" },
-    { "label": "nursingPregnant" },
-    { "label": "depression" },
-    { "label": "fatigue" },
-    { "label": "insomnia" }
+    { "label": "isHeadache" },
+    { "label": "isCancer" },
+    { "label": "isDiabetes" },
+    { "label": "isBloodClots" },
+    { "label": "isArthritis" },
+    { "label": "isAbnormalSkinConditions" },
+    { "label": "isHighOrLowBloodPressure" },
+    { "label": "isFibromyalgia" },
+    { "label": "isNeckOrBackPain" },
+    { "label": "isNumbness" },
+    { "label": "isVaricoseVeins" },
+    { "label": "isRecentInjury" },
+    { "label": "isNursingOrPregnant" },
+    { "label": "isDepression" },
+    { "label": "isFatigue" },
+    { "label": "isInsomnia" }
   ]
 }

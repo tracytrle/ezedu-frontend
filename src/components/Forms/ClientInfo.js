@@ -15,8 +15,9 @@ export default function FormPropsTextFields() {
   const { authState } = useContext(AuthContext);
   const [currentHealthData, setCurrentHealthData] = useState({});
   const [medicalHistoryData, setMedicalHistoryData] = useState({});
-  // const [additionalMedicalData, setAdditionalMedicalData] = useState({});
+  const [additionalMedicalData, setAdditionalMedicalData] = useState({});
   const [userRecord, setUserRecord] = useState({});
+  const userId = localStorage.getItem("userId");
 
   if (!authState.token) {
     window.location.href = "/";
@@ -25,9 +26,10 @@ export default function FormPropsTextFields() {
 
   const handleSubmit = () => {
     const userDataRecord = {
-      userId: authState.user.id,
+      userId: userId,
       ...currentHealthData,
       ...medicalHistoryData,
+      ...additionalMedicalData,
     };
 
     setUserRecord(userDataRecord);
@@ -96,7 +98,7 @@ export default function FormPropsTextFields() {
           padding: "16px",
         }}
       >
-        <AdditionalMedical />
+        <AdditionalMedical setData={setAdditionalMedicalData} />
       </Box>
       <Box
         sx={{
