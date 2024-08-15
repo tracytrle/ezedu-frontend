@@ -7,16 +7,37 @@ import MedicalHistory from "./MedicalHistory";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
 import { AuthContext } from "../../context/authContext/AuthContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { updateUserHealthRecord } from "../../api/api";
 
 export default function FormPropsTextFields() {
   const theme = useTheme();
   const { t } = useTranslation();
   const { authState } = useContext(AuthContext);
+  const [currentHealthData, setCurrentHealthData] = useState({});
+  const [medicalHistoryData, setMedicalHistoryData] = useState({});
+  const [additionalMedicalData, setAdditionalMedicalData] = useState({});
+  // const [userRecord, setUserRecord] = useState({});
+
+  const userId = localStorage.getItem("userId");
+
   if (!authState.token) {
     window.location.href = "/";
     return null;
   }
+
+  const handleSubmit = () => {
+    const userDataRecord = {
+      userId: userId,
+      ...currentHealthData,
+      ...medicalHistoryData,
+      ...additionalMedicalData,
+    };
+
+    updateUserHealthRecord(userId, userDataRecord);
+
+    window.location.href = "/profile";
+  };
 
   return (
     <Box
@@ -26,7 +47,7 @@ export default function FormPropsTextFields() {
       }}
       noValidate
       autoComplete="off"
-      // onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
@@ -44,7 +65,7 @@ export default function FormPropsTextFields() {
           padding: "16px", // Optional: Add some padding inside the box
         }}
       >
-        <CurrentHealth />
+        <CurrentHealth setData={setCurrentHealthData} />
       </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
@@ -62,7 +83,7 @@ export default function FormPropsTextFields() {
           padding: "16px",
         }}
       >
-        <MedicalHistory />
+        <MedicalHistory setData={setMedicalHistoryData} />
       </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
@@ -80,7 +101,7 @@ export default function FormPropsTextFields() {
           padding: "16px",
         }}
       >
-        <AdditionalMedical />
+        <AdditionalMedical setData={setAdditionalMedicalData} />
       </Box>
       <Box
         sx={{
@@ -99,6 +120,7 @@ export default function FormPropsTextFields() {
             "&:hover": { backgroundColor: "#A3E4EA" },
           }}
           variant="contained"
+          onClick={handleSubmit}
         >
           {t("submit")}
         </Button>

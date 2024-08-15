@@ -3,18 +3,30 @@ import { Grid, Checkbox, FormControlLabel } from "@mui/material";
 import data from "../../data/data.json";
 import { useTranslation } from "react-i18next";
 
-const CurrentHealth = () => {
+const CurrentHealth = ({ setData }) => {
   const { t } = useTranslation();
-  const [checkedItems, setCheckedItems] = useState({});
+  const checkboxes = data.healthCheckboxes;
+  const initialCheckedItems = checkboxes.reduce((acc, item) => {
+    acc[item.label] = false;
+    return acc;
+  }, {});
+
+  const [checkedItems, setCheckedItems] = useState(initialCheckedItems);
 
   const handleChange = (event) => {
-    setCheckedItems({
+    const updatedCheckedItems = {
       ...checkedItems,
       [event.target.name]: event.target.checked,
-    });
+    };
+    setCheckedItems(updatedCheckedItems);
+    setData(updatedCheckedItems);
   };
 
-  const checkboxes = data.healthCheckboxes;
+  const handleNotApplied = () => {
+    setCheckedItems(initialCheckedItems);
+    setData(initialCheckedItems);
+  };
+
   return (
     <Grid container spacing={2}>
       {checkboxes.map((item) => (
@@ -27,7 +39,7 @@ const CurrentHealth = () => {
                     color: "blue",
                   },
                 }}
-                checked={checkedItems[item.label] || false}
+                checked={checkedItems[item.label]}
                 onChange={handleChange}
                 name={item.label}
                 label={item.label}
@@ -37,6 +49,24 @@ const CurrentHealth = () => {
           />
         </Grid>
       ))}
+      <Grid item xs={4} md={3}>
+        <FormControlLabel
+          control={
+            <Checkbox
+              sx={{
+                "&.MuiCheckbox-root.Mui-checked": {
+                  color: "blue",
+                },
+              }}
+              checked={checkedItems["Not Applied"]}
+              onChange={handleNotApplied}
+              name="Not Applied"
+              label="Not Applied"
+            />
+          }
+          label={t("notHavingAnyCondition")}
+        />
+      </Grid>
     </Grid>
   );
 };

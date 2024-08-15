@@ -13,23 +13,21 @@ export default function HealthHistoryRecord() {
     getUserHealthRecord(userId).then((response) => {
       // Convert response.data to a list of objects
       const data = response.data;
-      console.log("data:", data);
-
       const keyValuePairsMap = [
         {
-          label: "heartQuesion",
+          label: "isHavingHeartDisease",
           value: data.isHavingHeartDisease ? "Yes" : "No",
         },
         {
-          label: "surgeriesQuestion",
+          label: "isHavingSurgery",
           value: data.isHavingSurgery ? "Yes" : "No",
         },
         {
-          label: "chronicIllnessQuestion",
+          label: "isHavingChronisIllness",
           value: data.isHavingChronisIllness ? "Yes" : "No",
         },
         {
-          label: "bloodPressureQuestion",
+          label: "isHavingHighOrLowBloodPressure",
           value: data.isHavingHighOrLowBloodPressure ? "Yes" : "No",
         },
       ];
