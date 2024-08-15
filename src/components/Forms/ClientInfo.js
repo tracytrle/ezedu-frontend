@@ -7,16 +7,32 @@ import MedicalHistory from "./MedicalHistory";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
 import { AuthContext } from "../../context/authContext/AuthContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export default function FormPropsTextFields() {
   const theme = useTheme();
   const { t } = useTranslation();
   const { authState } = useContext(AuthContext);
+  const [currentHealthData, setCurrentHealthData] = useState({});
+  const [medicalHistoryData, setMedicalHistoryData] = useState({});
+  // const [additionalMedicalData, setAdditionalMedicalData] = useState({});
+  const [userRecord, setUserRecord] = useState({});
+
   if (!authState.token) {
     window.location.href = "/";
     return null;
   }
+
+  const handleSubmit = () => {
+    const userDataRecord = {
+      userId: authState.user.id,
+      ...currentHealthData,
+      ...medicalHistoryData,
+    };
+
+    setUserRecord(userDataRecord);
+    console.log("userDataRecord:" + JSON.stringify(userDataRecord, null, 2));
+  };
 
   return (
     <Box
@@ -44,7 +60,7 @@ export default function FormPropsTextFields() {
           padding: "16px", // Optional: Add some padding inside the box
         }}
       >
-        <CurrentHealth />
+        <CurrentHealth setData={setCurrentHealthData} />
       </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
@@ -62,7 +78,7 @@ export default function FormPropsTextFields() {
           padding: "16px",
         }}
       >
-        <MedicalHistory />
+        <MedicalHistory setData={setMedicalHistoryData} />
       </Box>
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>
@@ -99,6 +115,7 @@ export default function FormPropsTextFields() {
             "&:hover": { backgroundColor: "#A3E4EA" },
           }}
           variant="contained"
+          onClick={handleSubmit}
         >
           {t("submit")}
         </Button>

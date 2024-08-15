@@ -13,8 +13,6 @@ export default function HealthHistoryRecord() {
     getUserHealthRecord(userId).then((response) => {
       // Convert response.data to a list of objects
       const data = response.data;
-      console.log("data:", data);
-
       const keyValuePairsMap = [
         {
           label: "heartQuesion",

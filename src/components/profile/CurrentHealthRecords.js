@@ -13,7 +13,6 @@ function CurrentHealthRecords() {
     getUserHealthRecord(userId).then((response) => {
       // how to convert repsonse.data to a list of objects?
       const data = response.data;
-      console.log("data: " + data);
       const keyValuePairsMap = [
         { label: "headaches", value: data.isHeadache ? "Yes" : "No" },
         { label: "cancer", value: data.isCancer ? "Yes" : "No" },

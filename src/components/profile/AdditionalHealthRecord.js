@@ -12,8 +12,6 @@ export default function AdditionalHealthRecord() {
   useEffect(() => {
     getUserHealthRecord(userId).then((response) => {
       const data = response.data;
-      console.log("data:", data);
-
       const keyValuePairsMap = [
         {
           label: "allergies",

@@ -20,3 +20,7 @@ export const setUserHealthHistory = (data) => {
 export const getUserHealthRecord = (userId) => {
   return axios.get(`${API_URL}/healthRecord/getRecord/${userId}`);
 };
+
+export const updateUserHealthRecord = (userId, data) => {
+  return axios.put(`${API_URL}/healthRecord/updateRecord/${userId}`, data);
+};

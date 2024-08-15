@@ -1,9 +1,9 @@
 {
   "questions": [
-    "heartQuesion",
-    "surgeriesQuestion",
-    "chronicIllnessQuestion",
-    "bloodPressureQuestion"
+    "isHavingHeartDisease",
+    "isHavingSurgery",
+    "isHavingChronisIllness",
+    "isHavingHighOrLowBloodPressure"
   ],
   "additionalQuestions": ["allegiesQuestion", "medicineQuestion"],
 
