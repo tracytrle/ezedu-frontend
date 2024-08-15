@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import UserInfo from "../../components/profile/UserInfo";
-import Header from "../../layouts/Header.js";
+import Header from "../../layouts/Header";
 import CurrentHealthRecords from "../../components/profile/CurrentHealthRecords";
 
 function UserProfile() {

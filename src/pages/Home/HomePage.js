@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
 import { Stack } from "@mui/material";
 
-import Footer from "../../layouts/Footer.js";
-import Header from "../../layouts/Header.js";
+import Footer from "../../layouts/Footer";
+import Header from "../../layouts/Header";
 
-import MainContent from "./MainContent.js";
+import MainContent from "./MainContent";
 
 function Homepage() {
   return (
