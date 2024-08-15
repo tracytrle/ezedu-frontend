@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { useContext, useState } from "react";
+import { updateUserHealthRecord } from "../../api/api";
 
 export default function FormPropsTextFields() {
   const theme = useTheme();
@@ -16,7 +17,8 @@ export default function FormPropsTextFields() {
   const [currentHealthData, setCurrentHealthData] = useState({});
   const [medicalHistoryData, setMedicalHistoryData] = useState({});
   const [additionalMedicalData, setAdditionalMedicalData] = useState({});
-  const [userRecord, setUserRecord] = useState({});
+  // const [userRecord, setUserRecord] = useState({});
+
   const userId = localStorage.getItem("userId");
 
   if (!authState.token) {
@@ -32,8 +34,9 @@ export default function FormPropsTextFields() {
       ...additionalMedicalData,
     };
 
-    setUserRecord(userDataRecord);
-    console.log("userDataRecord:" + JSON.stringify(userDataRecord, null, 2));
+    updateUserHealthRecord(userId, userDataRecord);
+
+    window.location.href = "/profile";
   };
 
   return (
@@ -44,7 +47,7 @@ export default function FormPropsTextFields() {
       }}
       noValidate
       autoComplete="off"
-      // onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <Box sx={{ ml: 1, mb: 1, mt: 2 }}>
         <Typography variant="h5" fontFamily={"-moz-initial"}>

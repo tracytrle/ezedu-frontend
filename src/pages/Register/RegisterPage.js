@@ -286,7 +286,7 @@ function RegisterPage() {
           >
             <TextField
               id="outlined-required"
-              label={t("email")}
+              label={t("userNameorEmail")}
               onChange={handleEmailChange}
               required
             />

@@ -37,6 +37,9 @@ export default function MenuAppBar() {
     window.location.href = "/profile";
     handleClose();
   };
+  const navigateToHomepage = () => {
+    window.location.href = "/homepage";
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -49,7 +52,7 @@ export default function MenuAppBar() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <MenuIcon onClick={navigateToHomepage} />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             MedicAI

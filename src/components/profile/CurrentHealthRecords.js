@@ -27,7 +27,7 @@ function CurrentHealthRecords() {
           value: data.isAbnormalSkinConditions ? "Yes" : "No",
         },
         {
-          label: "highOrLowBloodPressure",
+          label: "isHighOrLowBloodPressure",
           value: data.isHighOrLowBloodPressure ? "Yes" : "No",
         },
         { label: "isFibromyalgia", value: data.isFibromyalgia ? "Yes" : "No" },

@@ -82,7 +82,7 @@ function LoginPage() {
               "&:hover": { backgroundColor: theme.palette.primary.opacity },
             }}
             id="standard-basic"
-            label={t("email")}
+            label={t("userNameorEmail")}
             variant="standard"
             onChange={(e) => setEmail(e.target.value)}
             required
