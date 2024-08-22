@@ -5,7 +5,7 @@ import SearchModel from "./SearchModel";
 import Display from "../../context/messages/Display";
 import Models from "../../components/ui/Models";
 import CustomizedButton from "../../components/ui/CustomizedButton";
-import { getLatestConversation } from "../../api/api";
+import { getLatestConversation, getAllMessages } from "../../api/api";
 
 const styles = {
   container: {
@@ -27,11 +27,20 @@ const styles = {
 
 function MainContent() {
   const [conversationId, setConversationId] = useState("");
+  const [historicalMessages, setHistoricalMessages] = useState([]);
   const userId = localStorage.getItem("userId");
   useEffect(() => {
     getLatestConversation(userId).then((res) => {
       const response = res.data;
       setConversationId(response.conversationId);
+    });
+  }, []);
+
+  useEffect(() => {
+    getAllMessages(userId).then((res) => {
+      const response = res.data;
+      console.log("Allrecord: ", response);
+      setHistoricalMessages(response);
     });
   }, []);
 
@@ -94,7 +103,7 @@ function MainContent() {
                   mb: 2,
                 }}
               >
-                <Display />
+                <Display conversationId={conversationId} userId={userId} />
               </Grid>
               <Grid
                 style={styles.textFieldContainer}

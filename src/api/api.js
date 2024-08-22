@@ -28,3 +28,11 @@ export const updateUserHealthRecord = (userId, data) => {
 export const getLatestConversation = (userId) => {
   return axios.get(`${API_URL}/conversation/getLatest/${userId}`);
 };
+
+export const addConversation = (userId, data) => {
+  return axios.post(`${API_URL}/conversation/addMessage/${userId}`, data);
+};
+
+export const getAllMessages = (userId) => {
+  return axios.get(`${API_URL}/conversation/getAllMessages/${userId}`);
+};
