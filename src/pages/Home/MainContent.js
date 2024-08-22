@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Stack, Grid, Box } from "@mui/material";
 import TextFieldBase from "../../context/messages/TextFieldBase";
 import SearchModel from "./SearchModel";
 import Display from "../../context/messages/Display";
 import Models from "../../components/ui/Models";
 import CustomizedButton from "../../components/ui/CustomizedButton";
+import { getLatestConversation } from "../../api/api";
 
 const styles = {
   container: {
@@ -25,6 +26,15 @@ const styles = {
 };
 
 function MainContent() {
+  const [conversationId, setConversationId] = useState("");
+  const userId = localStorage.getItem("userId");
+  useEffect(() => {
+    getLatestConversation(userId).then((res) => {
+      const response = res.data;
+      setConversationId(response.conversationId);
+    });
+  }, []);
+
   return (
     <Stack
       sx={{
