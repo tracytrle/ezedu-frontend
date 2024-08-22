@@ -24,3 +24,7 @@ export const getUserHealthRecord = (userId) => {
 export const updateUserHealthRecord = (userId, data) => {
   return axios.put(`${API_URL}/healthRecord/updateRecord/${userId}`, data);
 };
+
+export const getLatestConversation = (userId) => {
+  return axios.get(`${API_URL}/conversation/getLatest/${userId}`);
+};
